@@ -1,0 +1,28 @@
+.pageHeader{
+    height: 80px;
+    background-color: black;
+}
+
+.gameTitle{
+    text-align: center;
+    color: wheat;
+}
+
+
+.startBtn{
+    width: 100%;
+    padding: 20px;
+    size: 10px;
+    font-size: 25px;
+    text-align: center;
+    margin: 2px auto;
+}
+
+.modal-title{
+    text-align: center;
+    font-size: 20px;
+}
+
+#game{
+    display: none;
+}
