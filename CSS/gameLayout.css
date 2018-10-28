@@ -12,7 +12,6 @@
 .startBtn{
     width: 100%;
     padding: 20px;
-    size: 10px;
     font-size: 25px;
     text-align: center;
     margin: 2px auto;
@@ -25,4 +24,33 @@
 
 #game{
     display: none;
+}
+
+#map{
+    position: relative;
+    border: 20px solid brown;
+}
+
+.default-cell{
+    display: inline-block;
+    border: 1px solid black;
+    position: absolute;
+}
+
+/* color to represent a cell that is in meadow terrain */
+.meadow{
+    background-color: green;
+}
+
+/* color to represent a cell that is un-viewable */
+.un-viewable{
+    background-color: gray;
+}
+
+/* Style of the hero block */
+#hero{
+    background-color: rgb(183, 221, 12);
+    position: absolute;
+    z-index: 1;
+    left: 0px;
 }
