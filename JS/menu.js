@@ -23,9 +23,9 @@ function exitGame(){
     // put code below
 }
 
-//saves the information for the most recent map played onto localStorage. It is all currently stored in an array,
-//called saved_map_info, with each index of the array containing each object. For example, saved_map_info[0] contains the
-//title of the map. saved_map_info[5] contains all the cells we know anything about.
+//Called when exit game button is clicked. saves the information for the most recent map played onto localStorage. 
+//It is all currently stored in an array,called saved_map_info, with each index of the array containing each object.
+//For example, saved_map_info[0] contains the title of the map. saved_map_info[5] contains all the cells we know anything about.
 function saveMap() {
     var title = "Test Map";
     var hero_cell = [12,12];
