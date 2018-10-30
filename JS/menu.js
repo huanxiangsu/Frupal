@@ -28,6 +28,7 @@ function exitGame(){
 //For example, saved_map_info[0] contains the title of the map. saved_map_info[5] contains all the cells we know anything about.
 function saveMap() {
     var title = "Test Map";
+    var map_size = 25;
     var hero_cell = [12,12];
     var energy = 103;
     var whiffles = 1000;
@@ -43,6 +44,7 @@ function saveMap() {
     var saved_map_info = [];
 
     saved_map_info.push(title);
+    saved_map_info.push(map_size);
     saved_map_info.push(hero_cell);
     saved_map_info.push(energy);
     saved_map_info.push(whiffles);
