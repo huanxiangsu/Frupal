@@ -1,12 +1,12 @@
 var mapSize = 10;  // the whole map size, X * X (from map_file)
-var cellSize = 40;  // each square's size measured in px.
+var cellSize = 40;  // each square's size measured in px. (can be any value)
 var hero_left_pos = 0; // used to move hero within the graphic map
 var hero_top_pos = 0;  // same above
 
-var map = document.getElementById("map");
-var startMenu = document.getElementById("startPage");
-var game = document.getElementById("game");
-var hero = document.getElementById("hero");
+var graphic_map = document.getElementById("map");
+var startPage = document.getElementById("startPage");
+var gamePage = document.getElementById("game");
+var graphic_hero = document.getElementById("hero");
 
 document.getElementById("moveUp").addEventListener("click", move_hero_up_graph);
 document.getElementById("moveDown").addEventListener("click", move_hero_down_graph);
@@ -14,28 +14,11 @@ document.getElementById("moveLeft").addEventListener("click", move_hero_left_gra
 document.getElementById("moveRight").addEventListener("click", move_hero_right_graph);
 
 
-// start, function to display the game when clicked "new game"
-function startGame(){
-    setupMap();  // setup the game map, have all game element ready in the map
-    setupHero();  // set the hero size to fit into a square and put it in (0,0).
-    display_one_block(0, 0);  // starting coordinate
-
-    startMenu.style.display = "none"; // hide the menu page
-    game.style.display = "block";  // display the game with the map and control-panel
-}
-
-// exit, remove all map cells and display starting menu when clicked "exit game"
-function exitGame(){
-    game.style.display = "none";
-    startMenu.style.display = "block";
-    removeAllCells();
-}
-
-
 // to setup a basic map, all cells will set to default meadow terrain.
 function setupMap(){
     setUpMapSize();  // setup the size of the map frame
-    
+    setupHero();  // set the hero size to fit into a square and put it in (0,0).
+
     var l_pos = 0;
     var u_pos = 0;
     var row = 0;
@@ -54,21 +37,21 @@ function setupMap(){
 
 // setup the overall map size
 function setUpMapSize(){
-    map.style.height = mapSize * cellSize + 40 + 'px';
-    map.style.width = mapSize * cellSize + 40 + 'px';
+    graphic_map.style.height = mapSize * cellSize + 40 + 'px';
+    graphic_map.style.width = mapSize * cellSize + 40 + 'px';
 }
 
 
 // set up the size and the position of the hero's block.
 function setupHero(){
-    hero.style.height = cellSize + 'px';
-    hero.style.width = cellSize + 'px';
-    hero.style.backgroundSize = cellSize + 'px';
+    graphic_hero.style.height = cellSize + 'px';
+    graphic_hero.style.width = cellSize + 'px';
+    graphic_hero.style.backgroundSize = cellSize + 'px';
     
     hero_top_pos = mapSize * cellSize - cellSize;
     hero_left_pos = 0;
-    hero.style.left = hero_left_pos;
-    hero.style.top = mapSize * cellSize - cellSize + 'px';
+    graphic_hero.style.left = hero_left_pos;
+    graphic_hero.style.top = mapSize * cellSize - cellSize + 'px';
 }
 
 
@@ -80,7 +63,7 @@ function createMeadowCell(leftPosition, upPosition, ID){
     x.setAttribute("ID", ID);
     x.setAttribute("style", "left:"+leftPosition+"px; top:"+upPosition+"px; height:" + cellSize + "px; width:" + cellSize + "px; background-size:" + cellSize + "px");
     //x.classList.remove("un-viewable");
-    map.appendChild(x);
+    graphic_map.appendChild(x);
 }
 
 
@@ -100,6 +83,8 @@ function display_one_block(row, column){
     document.getElementById(coordinate).classList.remove("un-viewable");
 }
 
+
+// to display one block ahead when having one bincolur
 function display_one_block_around(row, column){
     var coordinate = "";
     var i, j;
@@ -117,6 +102,7 @@ function display_one_block_around(row, column){
     }
 }
 
+// to display two block ahead when having a pair of bincolur
 function display_two_block_around(row, column){
     var coordinate = "";
     var i, j;
@@ -142,7 +128,7 @@ function move_hero_up_graph(){
         hero_top_pos -= cellSize;
     else   /* hero will cross to another side */
         hero_top_pos = mapSize * cellSize - cellSize;
-    hero.style.top = hero_top_pos + 'px';
+    graphic_hero.style.top = hero_top_pos + 'px';
 }
 
 function move_hero_down_graph(){
@@ -150,7 +136,7 @@ function move_hero_down_graph(){
         hero_top_pos += cellSize;
     else
         hero_top_pos = 0;
-    hero.style.top = hero_top_pos + 'px';
+    graphic_hero.style.top = hero_top_pos + 'px';
 }
 
 function move_hero_left_graph(){
@@ -158,7 +144,7 @@ function move_hero_left_graph(){
         hero_left_pos -= cellSize;
     else
         hero_left_pos = mapSize * cellSize - cellSize;
-    hero.style.left = hero_left_pos + 'px';
+    graphic_hero.style.left = hero_left_pos + 'px';
 }
 
 function move_hero_right_graph(){
@@ -166,7 +152,7 @@ function move_hero_right_graph(){
         hero_left_pos += cellSize;
     else
         hero_left_pos = 0;
-    hero.style.left = hero_left_pos + 'px';
+    graphic_hero.style.left = hero_left_pos + 'px';
 }
 
 
