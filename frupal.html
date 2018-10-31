@@ -16,13 +16,13 @@
 <body>
     <!--------------------------- Game Title --------------------------->
     <div class = "container-fluid pageHeader">
-        <h1 class="gameTitle">The Frupal</h1>
+        <h1 class="gameTitle">Frupal</h1>
     </div>
 
     <!----------------------------Game Start Menu---------------------->
     <div class="container-fluid" id="startPage">
         <button class="btn-primary startBtn" type="button" onclick="startGame()"><b>New Game</b></button><br>
-        <button class="btn-info startBtn" type="button" data-toggle="modal" data-target="#config"><b>Game Configuration</b></button> 
+	<button class="btn-info startBtn" type="button" data-toggle="modal" data-target="#config"><b>Game Configuration</b></button> 
     </div>
 
     <!----------------------------Game Configuration------------------->
@@ -58,17 +58,17 @@
         <hr>
         <!----Control-panel---->
         <div style="text-align:center;width:280px;">
-            <button id = "moveUp" type="button"><b>NORTH</b></button><br><br>
-            <button id = "moveLeft"><b>WEST</b></button>
+            <button id = "moveUp" type="button" onclick="updateloc();update_energy();"><b>NORTH</b></button><br><br>
+            <button id = "moveLeft" onclick="updateloc();update_energy();"><b>WEST</b></button>
             <span>&emsp;&emsp;</span> 
-            <button id = "moveRight"><b>EAST</b></button><br><br>
-            <button id = "moveDown"><b>SOUTH</b></button><br>
+            <button id = "moveRight" onclick="updateloc();update_energy();"><b>EAST</b></button><br><br>
+            <button id = "moveDown" onclick="updateloc();update_energy();"><b>SOUTH</b></button><br>
         </div>
         <p></p>
         <!----Hero's information---->
         <form>
-            Current Location <input type="text" name="currentlocation" value="0,0"><br>
-            Energy <input type="text" name="energy" value="100"><br>
+            Current Location <input type="text" name="currentlocation" id="currentlocation"><br>
+            Energy <input type="text" name="energy" id="energy"><br>
             Whiffles <input type="text" name="whiffles" value="100"><br>
             Messages <input type="text" name="messages" value="You are standing in a dark forest"><br>
         </form>
