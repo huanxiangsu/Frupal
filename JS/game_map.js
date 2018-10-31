@@ -2,6 +2,10 @@ var mapSize = 10;  // the whole map size, X * X (from map_file)
 var cellSize = 40;  // each square's size measured in px. (can be any value)
 var hero_left_pos = 0; // used to move hero within the graphic map
 var hero_top_pos = 0;  // same above
+var hero_energy = 100;
+var xpos = 0;
+var ypos = 0;
+
 
 var graphic_map = document.getElementById("map");
 var startPage = document.getElementById("startPage");
@@ -12,7 +16,8 @@ document.getElementById("moveUp").addEventListener("click", move_hero_up_graph);
 document.getElementById("moveDown").addEventListener("click", move_hero_down_graph);
 document.getElementById("moveLeft").addEventListener("click", move_hero_left_graph);
 document.getElementById("moveRight").addEventListener("click", move_hero_right_graph);
-
+document.getElementById("currentlocation").value=get_hero_position();
+document.getElementById("energy").value=get_energy();
 
 // to setup a basic map, all cells will set to default meadow terrain.
 function setupMap(){
@@ -154,5 +159,20 @@ function move_hero_right_graph(){
         hero_left_pos = 0;
     graphic_hero.style.left = hero_left_pos + 'px';
 }
-
-
+// get the coordinates of the position the hero is at
+function get_hero_position(){
+	return xpos + "," + ypos;
+}
+// update location of the hero
+function updateloc(){
+	document.getElementById("currentlocation").value=get_hero_position();	
+}
+// get the amount of energy the hero has left
+function get_energy(){
+	return hero_energy;
+}
+// decrement energy by one
+function update_energy(){
+	document.getElementById("energy").value = get_energy() - 1;
+	hero_energy--;
+}
