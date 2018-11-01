@@ -1,6 +1,6 @@
-var str = '["Sample Frupal Game Map","25","######################","12,12","103","1000","Axe","Axe","Shears","Pretty Rock","######################","12,12,1,1,None","13,12,0,1,Tree","14,12,0,2,None"]';
-localStorage.setItem('map', str);
-var test = document.getElementById("test");
+//var str = '["Sample Frupal Game Map","25","######################","12,12","103","1000","Axe","Axe","Shears","Pretty Rock","######################","12,12,1,1,None","13,12,0,1,Tree","14,12,0,2,None"]';
+//localStorage.setItem('map', str);
+//var test = document.getElementById("test");
 
 
 var map_name = "";
@@ -76,15 +76,20 @@ function parse_map_file(){
 
 parse_map_file();
 
+//ttest();
 function ttest(){
-test.innerHTML = map_name + " + " + mapSize + "<br>";
-test.innerHTML += hero.row_coordinate + " + " + hero.col_coordinate + "<br>";
-test.innerHTML += hero.energy + " + " + hero.money + "<br>";
-for (x in hero.items){
-    test.innerHTML += hero.items[x] + "<br>";
-}
-test.innerHTML += map[13][12].obstacle + "<br>";
+    test.innerHTML = map_name + " + " + mapSize + "<br>";
+    test.innerHTML += hero.row_coordinate + " + " + hero.col_coordinate + "<br>";
+    test.innerHTML += hero.energy + " + " + hero.money + "<br>";
+    for (x in hero.items){
+        test.innerHTML += hero.items[x] + "<br>";
+    }
+    test.innerHTML += map[13][12].obstacle + "<br>";
 
-alert(map[12][12].visibility);
-alert(map[13][12].obstacle);
+    var i, j;
+    for(i = 0; i < mapSize; i++){
+        for(j = 0; j < mapSize; j++){
+            test.innerHTML += map[i][j].row + ',' + map[i][j].col + ',' + map[i][j].visibility + ',' + map[i][j].terrain + ',' + map[i][j].obstacle + "<br>";
+        }
+    }
 }
