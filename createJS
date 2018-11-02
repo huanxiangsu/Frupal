@@ -4,12 +4,14 @@
 mapFile = open("map_file")
 
 # Empty space to hold the contents of mapFile
-storageLine=""
+storageLine="["
 
 # Go line by line and retrieve contents of mapFile
 for mapLine in mapFile:
-  storageLine = storageLine + "[" + mapLine.rstrip() + "]"
+  storageLine = storageLine + '"' + mapLine.rstrip() + '",'
   
+# replaced last "," with "]" 
+storageLine[-1] = ']'
  # Close mapFile
 mapFile.closed
 
