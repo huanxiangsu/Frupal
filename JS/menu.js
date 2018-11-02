@@ -23,35 +23,34 @@ function exitGame(){
     // put code below
 }
 
-//Called when exit game button is clicked. saves the information for the most recent map played onto localStorage. 
-//It is all currently stored in an array,called saved_map_info, with each index of the array containing each object.
-//For example, saved_map_info[0] contains the title of the map. saved_map_info[5] contains all the cells we know anything about.
+//I tried to set up save to save the file in the same format as the parsing sctipt so when we add the continue button we should be 
+//able just add a call to the parsing script then the create map to create the map off the values we have. I imagine once we
+//add items to the cells we will need to change this a bit.
 function saveMap() {
-    var title = "Test Map";
-    var map_size = 25;
-    var hero_cell = [12,12];
-    var energy = 103;
-    var whiffles = 1000;
-    var items = [
-        "Axe",
-        "Axe",
-        "Shears",
-        "Pretty Rock"]
-    var known_cells = [
-        [12,12,1,1,"None"],
-        [13,12,0,1,"Tree"],
-        [14,12,0,2,"None"]];
-    var saved_map_info = [];
-
-    saved_map_info.push(title);
-    saved_map_info.push(map_size);
-    saved_map_info.push(hero_cell);
-    saved_map_info.push(energy);
-    saved_map_info.push(whiffles);
-    saved_map_info.push(items);
-    saved_map_info.push(known_cells);
-    
-    localStorage.setItem("saved_game", JSON.stringify(saved_map_info));
+     var file = []
+     file.push(title);
+     file.push(mapSize);
+     file.push("#########");//pointless, i know, but it kind of helps with readability/consistancy with the parsing script
+     //file.push([hero.row_coordinate, hero.column_coordinate]);
+     file.push(hero.row_coordinate + "," + hero.column_coordinate); //looks like the parsing script breaks up a concatenation of strings and not an array
+     file.push(hero.energy);
+     file.push(hero.whiffles);
+     
+     //adds each hero item to a seperate index of file
+     items_max = hero.items.length - 1;
+     for (i = 0; i < items_max; ++i) {
+         file.push(hero.items[i]);
+     }
+     file.push("########"); //to reuse the parsing script
+     
+     //goes through each cell of the map and saves it's information to its own index of file.
+     for(a = 0; a < mapSize; ++a){
+         for(b = 0; b < mapSize; ++b){
+             file.push(map[a][b].row + "," + map[a][b].column + "," + map[a][b].visibility + "," +  map[a][b].terrain + "," + map[a][b].obstacle);
+         }
+     }
+     //stores as a string in JSON format for the parsing script
+     localStorage.setItem("map", JSON.stringify(file));
 }
 
 function continueGame(){
