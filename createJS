@@ -11,7 +11,7 @@ for mapLine in mapFile:
   storageLine = storageLine + '"' + mapLine.rstrip() + '",'
   
 # replaced last "," with "]" 
-storageLine[-1] = ']'
+storageLine = storageLine[:-1] + ']'
  # Close mapFile
 mapFile.closed
 
