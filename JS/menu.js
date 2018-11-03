@@ -1,15 +1,12 @@
 
 
-
-
 // start, function to display the game 
 // scripts to execute when clicked "new game"
 function startGame(){
-
+    parse_map_file("map");  // when new name, parse map file
 
     // put code above
     setupMap();  // setup the game map, have all game element ready in the map
-    display_one_block(0, 0);  // starting coordinate
     startPage.style.display = "none"; // hide the menu page
     gamePage.style.display = "block";  // display the game with the map and control-panel
 }
@@ -21,13 +18,25 @@ function exitGame(){
     startPage.style.display = "block";
     removeAllCells();
     // put code below
+    saveMap();
 }
+
+// scripts to perform when click "continue game"
+function continueGame(){
+    parse_map_file("save_map");  // load state-preserving file
+
+    // loading data above
+    setupMap();
+    startPage.style.display = "none"; // hide the menu page
+    gamePage.style.display = "block";  // display the game with the map and control-panel
+}
+
 
 //I tried to set up save to save the file in the same format as the parsing sctipt so when we add the continue button we should be 
 //able just add a call to the parsing script then the create map to create the map off the values we have. I imagine once we
 //add items to the cells we will need to change this a bit.
 function saveMap() {
-     var file = []
+     var file = [];
      file.push(title);
      file.push(mapSize);
      file.push("#########");//pointless, i know, but it kind of helps with readability/consistancy with the parsing script
@@ -37,7 +46,7 @@ function saveMap() {
      file.push(hero.whiffles);
      
      //adds each hero item to a seperate index of file
-     items_max = hero.items.length - 1;
+     items_max = hero.items.length;
      for (i = 0; i < items_max; ++i) {
          file.push(hero.items[i]);
      }
@@ -50,9 +59,6 @@ function saveMap() {
          }
      }
      //stores as a string in JSON format for the parsing script
-     localStorage.setItem("map", JSON.stringify(file));
+     localStorage.setItem("save_map", JSON.stringify(file));
 }
 
-function continueGame(){
-
-}
