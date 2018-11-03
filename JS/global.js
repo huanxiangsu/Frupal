@@ -21,7 +21,7 @@ var map;  // two dimensional array to store each map cell
 class map_cell {  // for each map cell's property
     constructor(x, y) {
         this.row = x;
-        this.col = y;
+        this.column = y;
         this.visibility = 0;
         this.terrain = 0;
         this.obstacle = "None";
