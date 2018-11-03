@@ -4,8 +4,8 @@
 //var test = document.getElementById("test");
 
 
-function parse_map_file(){
-    var file = JSON.parse(localStorage.getItem("map"));
+function parse_map_file(name){
+    var file = JSON.parse(localStorage.getItem(name));
 
     title = file[0];
     mapSize = eval(file[1]);
@@ -52,9 +52,7 @@ function parse_map_file(){
 }
 
 
-
-parse_map_file();
-
+//parse_map_file();
 
 //ttest();
 function ttest(){
@@ -69,7 +67,7 @@ function ttest(){
     var i, j;
     for(i = 0; i < mapSize; i++){
         for(j = 0; j < mapSize; j++){
-            test.innerHTML += map[i][j].row + ',' + map[i][j].col + ',' + map[i][j].visibility + ',' + map[i][j].terrain + ',' + map[i][j].obstacle + "<br>";
+            test.innerHTML += map[i][j].row + ',' + map[i][j].column + ',' + map[i][j].visibility + ',' + map[i][j].terrain + ',' + map[i][j].obstacle + "<br>";
         }
     }
 }
