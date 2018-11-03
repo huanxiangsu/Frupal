@@ -22,6 +22,7 @@
     <!----------------------------Game Start Menu---------------------->
     <div class="container-fluid" id="startPage">
         <button class="btn-primary startBtn" type="button" onclick="startGame()"><b>New Game</b></button><br>
+	<button class="btn-primary startBtn" type="button" onclick="continueGame()"><b>Continue Game</b></button><br>
 	<button class="btn-info startBtn" type="button" data-toggle="modal" data-target="#config"><b>Game Configuration</b></button> 
     </div>
 
@@ -73,12 +74,13 @@
             Messages <input type="text" name="messages" value="You are standing in a dark forest"><br>
         </form>
         <br><br>
-        <button class="btn-danger startBtn" type="button" onclick="saveMap(); exitGame();"><b>Exit Game</b></button><br>
+        <button class="btn-danger startBtn" type="button" onclick="exitGame();"><b>Exit Game</b></button><br>
     </div>
 
 	
-    <!-- include JavaScript file here -->
-    <script src="map_file.js"></script>
+    <!-- include JavaScript files here -->
+    <script src="JS/global.js"></script>
+    <script src="JS/parsing_script.js"></script>
     <script src="JS/game_map.js"></script>
     <script src="JS/menu.js"></script>
 </body>
