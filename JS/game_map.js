@@ -21,7 +21,8 @@ document.getElementById("moveRight").addEventListener("click", move_hero_right_g
 function setupMap(){
     setUpMapSize();  // setup the size of the map frame
     setupHero();  // set the hero size to fit into a square and put it in (0,0).
-
+    create_royal_jewel(); //setup the location of royal diamond on the map.
+ 
     var l_pos = 0;
     var u_pos = 0;
     var row = 0;
