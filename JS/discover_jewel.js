@@ -1,7 +1,7 @@
 function create_royal_jewel()
 {
-  jewel.x = Math.floor(Math.random()*(mapSize+1));
-  jewel.y = Math.floor(Math.random()*(mapSize+1));
+  jewel.x = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
+  jewel.y = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
 }
 
 function get_jewel_loc()
