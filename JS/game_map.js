@@ -2,15 +2,10 @@
   This file should only contain codes for graphic map manipulation
 */
 
-/*
-  these 4 lines should call another function to handle the actual hero movement instead of graphic movement function,
-  which is the program from user story of hero's movement.
-  these four lines could move to global.js or a file to handle movement script.
-*/
-document.getElementById("moveUp").addEventListener("click", move_hero_up_graph);
-document.getElementById("moveDown").addEventListener("click", move_hero_down_graph);
-document.getElementById("moveLeft").addEventListener("click", move_hero_left_graph);
-document.getElementById("moveRight").addEventListener("click", move_hero_right_graph);
+//document.getElementById("moveUp").addEventListener("click", move_hero_up_graph);
+//document.getElementById("moveDown").addEventListener("click", move_hero_down_graph);
+//document.getElementById("moveLeft").addEventListener("click", move_hero_left_graph);
+//document.getElementById("moveRight").addEventListener("click", move_hero_right_graph);
 // 
 
 
@@ -227,16 +222,20 @@ $("#map").keyup(function(){
     //console.log(event);
     var x = event.which;
     if (x == 37 || x == 65) {  //left: ← or a
-        move_hero_left_graph();
+        move_left();
     }
     else if (x == 38 || x == 87) {  // up: ↑ or w
-        move_hero_up_graph();
+        move_up();
     }
     else if (x == 39 || x == 68) {  // right: → or d
-        move_hero_right_graph();
+        move_right();
     }
     else if (x == 40 || x == 83) {  // down: ↓ or s
-        move_hero_down_graph();
+        move_down();
     }
     else{}
+});
+// prevent default for arrowkeys
+$("#map").keydown(function(){
+    event.preventDefault();
 });
