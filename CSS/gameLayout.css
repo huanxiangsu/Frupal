@@ -8,13 +8,16 @@
     color: wheat;
 }
 
+.gameMenu{
+    text-align: center;
+}
 
 .startBtn{
     width: 100%;
-    padding: 20px;
+    padding: 15px;
     font-size: 25px;
     text-align: center;
-    margin: 2px auto;
+    margin: 3px;
 }
 
 .modal-title{
@@ -28,29 +31,108 @@
 
 #map{
     position: relative;
-    border: 20px solid brown;
+    border: 20px solid rgb(170, 123, 61);
 }
 
+/* Style of the hero block */
+#hero{
+    background-image: url("../images/hero2.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    z-index: 3;
+    left: 0px;
+}
+
+/* default property for a single cell */
 .default-cell{
     display: inline-block;
-    border: 1px solid black;
+    border: 1px solid rgb(188, 226, 212);
     position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 /* color to represent a cell that is in meadow terrain */
 .meadow{
     background-color: green;
+    background-image: url("../images/meadow.png");
+}
+
+/* forest terrain */
+.forest{
+    background-color: rgb(19, 65, 19);
+    background-image: url("../images/forest8.png");
+}
+
+/* river terrain */
+.water{
+    background-color: rgb(72, 219, 207);
+    background-image: url();
+}
+
+.wall{
+    background-color: saddlebrown;
+    background-image: url();
+}
+
+/* bog terraain */
+.bog{
+    background-color: rgb(174, 78, 212);
+    background-image: url();
+}
+
+.swamp{
+    background-color: firebrick;
+    background-image: url();
 }
 
 /* color to represent a cell that is un-viewable */
 .un-viewable{
     background-color: gray;
+    background-image: url("../images/question.png");
+    z-index: 2;
 }
 
-/* Style of the hero block */
-#hero{
-    background-color: rgb(183, 221, 12);
+
+/* default property for obstacles or items */
+.default-item{
+    display: inline-block;
     position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
     z-index: 1;
-    left: 0px;
 }
+
+.Jewel{
+    background-image: url("../images/diamond.png");
+}
+
+.Treasure1{
+    background-image: url("../images/treasure1.png");
+}
+
+.Treasure2{
+    background-image: url("../images/treasure2.png");
+}
+
+.Powerbar{
+    background-image: url("../images/powerbar.png");
+}
+
+.Tree{
+    background-image: url("../images/tree.png");
+}
+
+.Boulder{
+    background-image: url("../images/rock.png");
+}
+
+.Blackburry{
+    background-image: url();
+}
+
+.Clue{
+    background-image: url();
+}
+
