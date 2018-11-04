@@ -1,4 +1,3 @@
-
 document.getElementById("currentlocation").value=get_hero_position();
 document.getElementById("energy").value=get_energy();
 
@@ -23,8 +22,47 @@ function update_energy(){
 function movement()
 {
 	updateloc();
+	map[hero.column_coordinate][hero.row_coordinate].visibility = 1;
 	update_energy();
 	win_game();
 }
 
+// TODO should i call the graphic movement functions from these functions below?
+// that's what makes sense to me as the hero shouldn't be able to graphically move if
+// they aren't legally allowed to
 
+// ALSO, im not currently adding to the list of visited cells
+
+ function move_up()
+{
+  // do we need to check if there is enough energy to move here?
+   if (hero.row_coordinate == (mapSize - 1)) // if at top of map
+    hero.row_coordinate = 0;
+  else
+    hero.row_coordinate += 1;
+   movement();
+}
+ function move_left()
+{
+  if (hero.column_coordinate == 0) // at left edge of map
+    hero.column_coordinate = (mapSize - 1);
+  else
+    hero.column_coordinate -= 1;
+   movement();
+}
+ function move_right()
+{
+  if (hero.column_coordinate == (mapSize-1)) // at right edge of map
+    hero.column_coordinate = 0;
+  else
+    hero.column_coordinate += 1;
+   movement();
+}
+ function move_down()
+{
+  if (hero.row_coordinate == 0) // if at bottom of map
+    hero.row_coordinate = (mapSize - 1);
+  else
+    hero.row_coordinate -= 1;
+   movement();
+}
