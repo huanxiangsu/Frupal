@@ -1,4 +1,3 @@
-
 function create_royal_jewel()
 {
   jewel.x = Math.floor(Math.random()*(mapSize+1));
