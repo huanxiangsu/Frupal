@@ -22,3 +22,12 @@ function update_energy(){
 	document.getElementById("energy").value = get_energy() - 1;
 	hero_energy--;
 }
+
+function movement()
+{
+	updateloc();
+	update_energy();
+	win_game();
+}
+
+
