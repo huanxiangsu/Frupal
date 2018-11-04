@@ -62,6 +62,12 @@ function saveMap() {
              file.push(map[a][b].row + "," + map[a][b].column + "," + map[a][b].visibility + "," +  map[a][b].terrain + "," + map[a][b].obstacle);
          }
      }
+    
+     //appends the jewel coordinates tot he end of the file to be written
+     file.push('#');
+     file.push(jewel.x);
+     file.push(jewel.y);
+
      //stores as a string in JSON format for the parsing script
      localStorage.setItem("save_map", JSON.stringify(file));
 }
