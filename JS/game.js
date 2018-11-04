@@ -5,24 +5,19 @@ document.getElementById("energy").value=get_energy();
 function get_hero_position(){
 	return hero.row_coordinate + ", " + hero.column_coordinate;
 }
-// update location of the hero
-function updateloc(){
-	document.getElementById("currentlocation").value=get_hero_position();	
-}
+
 // get the amount of energy the hero has left
 function get_energy(){
 	return hero.energy;
 }
 // decrement energy by one
 function update_energy(){
-	document.getElementById("energy").value = get_energy() - 1;
 	hero.energy--;
 }
 
 function movement()
 {
 	updateloc();
-	map[hero.column_coordinate][hero.row_coordinate].visibility = 1;
 	update_energy();
 	win_game();
 }
@@ -40,6 +35,8 @@ function movement()
     hero.row_coordinate = 0;
   else
     hero.row_coordinate += 1;
+   move_hero_up_graph();
+   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
    movement();
 }
  function move_left()
@@ -48,6 +45,8 @@ function movement()
     hero.column_coordinate = (mapSize - 1);
   else
     hero.column_coordinate -= 1;
+   move_hero_left_graph();
+   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
    movement();
 }
  function move_right()
@@ -56,6 +55,8 @@ function movement()
     hero.column_coordinate = 0;
   else
     hero.column_coordinate += 1;
+   move_hero_right_graph();
+   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
    movement();
 }
  function move_down()
@@ -64,5 +65,7 @@ function movement()
     hero.row_coordinate = (mapSize - 1);
   else
     hero.row_coordinate -= 1;
+   move_hero_down_graph();
+   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
    movement();
 }
