@@ -1,13 +1,14 @@
 var hero_energy = 100;
-var xpos = 0;
-var ypos = 0;
+//var xpos = 0;
+//var ypos = 0;
 
 document.getElementById("currentlocation").value=get_hero_position();
 document.getElementById("energy").value=get_energy();
 
 // get the coordinates of the position the hero is at
 function get_hero_position(){
-	return xpos + "," + ypos;
+//	return xpos + "," + ypos;
+	return hero.row_coordinate + ", " + hero.column_coordinate;
 }
 // update location of the hero
 function updateloc(){
