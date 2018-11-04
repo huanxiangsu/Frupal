@@ -4,6 +4,7 @@
 // scripts to execute when clicked "new game"
 function startGame(){
     parse_map_file("map");  // when new name, parse map file
+    create_royal_jewel();  //setup the location of royal diamond on the map.
     document.getElementById("currentlocation").value=get_hero_position();
     document.getElementById("energy").value=get_energy();
 
