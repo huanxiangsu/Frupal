@@ -40,7 +40,7 @@ function parse_map_file(name){
 
     ++i;  // now beginning of file[i] to the end are all map cells information
     var a_cell;
-    while(file[i] != undefined){
+    while(file[i] != undefined && file[i] != '#'){
         a_cell = file[i].split(',');
         /* a_cell[0] = row, a_cell[1] = column, a_cell[2] = visibility value (0 or 1)
            a_cell[3] = terrain value, a_cell[4] = obstacle or item in the map */
@@ -49,6 +49,11 @@ function parse_map_file(name){
         map[eval(a_cell[0])][eval(a_cell[1])].obstacle = a_cell[4];
         ++i; // increment to next map cell
     }
+     //checks if there is a jewel coordinate at the end of the file and assigns the global variables if so      
+    if(file[file.length - 3] == '#') {                                                                         
+        jewel.x = file[file.length - 2];                                                                       
+        jewel.y = file[file.length - 1];                                                                       
+    }    
 }
 
 
