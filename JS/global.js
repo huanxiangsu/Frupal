@@ -13,7 +13,7 @@ var hero = {
   items: [],
 }
 
-//contains the coordinates of the jewel on the map
+//contains the coordinates of the royal diamond jewel on the map
 var jewel = {
   x: 0,
   y: 0,
