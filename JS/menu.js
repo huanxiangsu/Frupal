@@ -5,16 +5,23 @@ window.onbeforeunload = saveMap;
 // start, function to display the game 
 // scripts to execute when clicked "new game"
 function startGame(){
-    parse_map_file("map");  // when new name, parse map file
-    create_royal_jewel();  //setup the location of royal diamond on the map.
-    document.getElementById("currentlocation").value=get_hero_position();
-    document.getElementById("energy").value=get_energy();
+    if(parse_map_file("map")){  // when new name, parse map file
+        create_royal_jewel();  //setup the location of royal diamond on the map.
+        document.getElementById("currentlocation").value=get_hero_position();
+        document.getElementById("energy").value=get_energy();
 
-    // put code above
-    setupMap();  // setup the game map, have all game element ready in the map
-    startPage.style.display = "none"; // hide the menu page
-    gamePage.style.display = "block";  // display the game with the map and control-panel
+
+        // put code above, parsing or setting or creating something necessary
+        setupMap();  // setup the game map, have all game element ready in the map
+        //display_all_blocks();  // remove comment for testing only, display all cells to viewable
+        startPage.style.display = "none"; // hide the menu page
+        gamePage.style.display = "block";  // display the game with the map and control-panel
+    }
+    else{
+        alert("Loading map file failed!");
+    }
 }
+
 
 // exit, remove all map cells and display starting menu when clicked "exit game"
 // scripts to perform after exit game
@@ -26,16 +33,31 @@ function exitGame(){
     saveMap();
 }
 
-// scripts to perform when click "continue game"
-function continueGame(){
-    parse_map_file("save_map");  // load state-preserving file
-    document.getElementById("currentlocation").value=get_hero_position();
-    document.getElementById("energy").value=get_energy();
 
-    // loading data above
-    setupMap();
-    startPage.style.display = "none"; // hide the menu page
-    gamePage.style.display = "block";  // display the game with the map and control-panel
+// scripts to perform when user come back and click "continue game"
+function continueGame(){
+    if (parse_map_file("save_map")){
+        document.getElementById("currentlocation").value=get_hero_position();
+        document.getElementById("energy").value=get_energy();
+
+
+        // load state preserving file from localStorage above
+        setupMap();
+        startPage.style.display = "none"; // hide the menu page
+        gamePage.style.display = "block";  // display the game with the map and control-panel
+    }
+    else{
+        alert("No state-preserving file found!");
+    }
+}
+
+
+// scripts to perform when royal dismond found or run out of energy
+function game_over(){
+    localStorage.removeItem("save_map");
+    gamePage.style.display = "none";
+    startPage.style.display = "block";
+    removeAllCells();
 }
 
 
