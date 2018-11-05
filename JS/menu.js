@@ -1,5 +1,8 @@
 // save map to state-preserving file when close the browser or tab. 
-window.onbeforeunload = saveMap;
+window.onbeforeunload = function(){
+    if(localStorage.getItem("in_game") == "yes")
+        saveMap();
+};
 
 
 // start, function to display the game 
@@ -12,6 +15,7 @@ function startGame(){
 
 
         // put code above, parsing or setting or creating something necessary
+        localStorage.setItem("in_game", "yes");
         setupMap();  // setup the game map, have all game element ready in the map
         //display_all_blocks();  // remove comment for testing only, display all cells to viewable
         startPage.style.display = "none"; // hide the menu page
@@ -55,6 +59,7 @@ function continueGame(){
 // scripts to perform when royal dismond found or run out of energy
 function game_over(){
     localStorage.removeItem("save_map");
+    localStorage.setItem("in_game", "no");
     gamePage.style.display = "none";
     startPage.style.display = "block";
     removeAllCells();
