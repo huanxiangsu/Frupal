@@ -19,6 +19,10 @@ function get_energy(){
 function update_energy(){
 	document.getElementById("energy").value = get_energy() - 1;
 	hero.energy--;
+	if(hero.energy < 1) {
+		alert("You have run out of energy...loser");
+		game_over();
+	}
 }
 
 function movement()
