@@ -29,6 +29,7 @@ function movement()
 {
 	updateloc();
 	update_energy();
+	//noEnergy();
 	win_game();
 }
 
