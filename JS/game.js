@@ -17,8 +17,9 @@ function get_energy(){
 }
 // decrement energy by one
 function update_energy(){
-	document.getElementById("energy").value = get_energy() - 1;
 	hero.energy--;
+	document.getElementById("energy").value = get_energy();
+	
 	if(hero.energy < 1) {
 		alert("You have run out of energy...loser");
 		game_over();
