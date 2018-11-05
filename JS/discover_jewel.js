@@ -19,5 +19,15 @@ function win_game()
   }
 }
 
+/*This assume if the hero moves to the royal jewels with their last energy tehy win the game.
+funtion noEnergy() {
+  if (hero.energy == 0 && ((eval(hero.row_coordinate) == eval(jewel.x)) && (eval(hero.column_coordinate) == eval(jewel.y))))
+    return;
+  
+  if (hero.energy == 0) {
+    alert ("You ran out of energy!");
+    game_over();
+  }
+}
 
 
