@@ -20,17 +20,17 @@ function update_energy(){
 	hero.energy--;
 	document.getElementById("energy").value = get_energy();
 	
-	if(hero.energy < 1) {
+	/*if(hero.energy < 1) {
 		alert("You have run out of energy...loser");
 		game_over();
-	}
+	}*/
 }
 
 function movement()
 {
 	updateloc();
 	update_energy();
-	//noEnergy();
+	noEnergy();
 	win_game();
 }
 
