@@ -6,6 +6,9 @@
 
 function parse_map_file(name){
     var file = JSON.parse(localStorage.getItem(name));
+    if(file == null){
+        return false; // return error when info not exist in localStorage
+    }
 
     title = file[0];
     mapSize = eval(file[1]);
@@ -53,7 +56,8 @@ function parse_map_file(name){
     if(file[file.length - 3] == '#') {                                                                         
         jewel.x = file[file.length - 2];                                                                       
         jewel.y = file[file.length - 1];                                                                       
-    }    
+    }
+    return true;
 }
 
 
