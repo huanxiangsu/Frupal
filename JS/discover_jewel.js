@@ -15,6 +15,7 @@ function win_game()
   if ( (eval(hero.row_coordinate) == eval(jewel.x)) && (eval(hero.column_coordinate) == eval(jewel.y)) )
   {
     alert("Royal Jewel Found! Game over.");
+    game_over();
   }
 }
 
