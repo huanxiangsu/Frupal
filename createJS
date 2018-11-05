@@ -16,6 +16,4 @@ storageLine = storageLine[:-1] + ']'
 mapFile.closed
 
 # Print contents of mapFile, include <script> tag so this can be used in an html file
-print("<script>")
 print("localStorage.setItem('map','"+storageLine+"')");
-print("</script>")
