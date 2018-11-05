@@ -20,7 +20,7 @@ function win_game()
 }
 
 //This assumes if the hero moves to the royal jewels with their last energy they win the game.
-funtion noEnergy() {
+function noEnergy() {
   if (hero.energy == 0 && ((eval(hero.row_coordinate) == eval(jewel.x)) && (eval(hero.column_coordinate) == eval(jewel.y))))
     return;
   
