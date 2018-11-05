@@ -1,3 +1,5 @@
+// save map to state-preserving file when close the browser or tab. 
+window.onbeforeunload = saveMap;
 
 
 // start, function to display the game 
