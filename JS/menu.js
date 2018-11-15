@@ -1,5 +1,5 @@
 // save map to state-preserving file when close the browser or tab. 
-window.onbeforeunload = function (){
+window.onbeforeunload = window.onunload = function (){
     if(localStorage.getItem("game_status") == "in_game"){
         saveMap();
         localStorage.setItem("game_status", "saved_game");
@@ -19,6 +19,7 @@ function startGame(){
         // put code above, parsing or setting or creating something necessary
         localStorage.setItem("game_status", "in_game");
         setupMap();  // setup the game map, have all game element ready in the map
+        setup_Inventory();  // setup inventory
         //display_all_blocks();  // remove comment for testing only, display all cells to viewable
         startPage.style.display = "none"; // hide the menu page
         gamePage.style.display = "block";  // display the game with the map and control-panel
@@ -37,6 +38,7 @@ function exitGame(){
     removeAllCells();
     // put code below
     saveMap();
+    reset_Inventory();
     localStorage.setItem("game_status", "saved_game");
 }
 
@@ -51,6 +53,7 @@ function continueGame(){
         // load state preserving file from localStorage above
         localStorage.setItem("game_status", "in_game");
         setupMap();
+        setup_Inventory();
         startPage.style.display = "none"; // hide the menu page
         gamePage.style.display = "block";  // display the game with the map and control-panel
     }
@@ -67,6 +70,7 @@ function game_over(){
     gamePage.style.display = "none";
     startPage.style.display = "block";
     removeAllCells();
+    reset_Inventory();
 }
 
 
