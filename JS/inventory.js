@@ -63,3 +63,30 @@ function change_btn_text(){
         $(".btn-inventory").text("Display Inventory");
     }
 }
+
+
+// call this function when you get a new item during the game, so it can reflect
+// to the inventory block immediately.
+// argument: item - the new item's name in string format, like "Axe".
+function add_to_inventory(item){
+    var num;
+    // if the item already added to the list, increase quantity by 1
+    if(document.getElementById(item)){
+        num = $("[id='"+item+"'] .quantity").text();
+        num = eval(num);
+        ++num;
+        $("[id='" + item + "'] .quantity").text(num);
+    }
+
+    // otherwise, add <li> element to inventory list with corrsponding name, quantity, and value.
+    else{  
+        $("#inventory-list").append("<li class='hero_item' id='" + item + "'>" + item + "&emsp;X<span class='quantity'>1</span>&emsp;(value: <span class='cost'>0</span> Whiffles)" + "</li>");
+        $("[id='" + item + "'] .cost").text(get_purchase_value(item));  // set purchase value
+    }
+}
+
+/* for test
+function add_item(){
+    var value = document.getElementById("demo").value;
+    add_to_inventory(value);
+}*/
