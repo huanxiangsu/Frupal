@@ -13,18 +13,17 @@ function setup_Inventory(){
     for (x in hero.items){
         // if the item already added to the list, increase quantity by 1
         if(document.getElementById(hero.items[x])){
-            num = $('#'+hero.items[x]+' .quantity').text();
+            num = $("[id='"+hero.items[x]+"'] .quantity").text();
             num = eval(num);
             ++num;
-            $('#'+hero.items[x]+' .quantity').text(num);
+            $("[id='" +hero.items[x]+ "'] .quantity").text(num);
         }
 
         // otherwise, add <li> element to inventory list with corrsponding name, quantity, and value.
         else{  
             $("#inventory-list").append("<li class='hero_item' id='" + hero.items[x] + "'>" +hero.items[x] + "&emsp;X<span class='quantity'>1</span>&emsp;(value: <span class='cost'>0</span> Whiffles)" + "</li>");
-            $('#'+hero.items[x]+' .cost').text(get_purchase_value(hero.items[x]));  // set purchase value
+            $("[id='" +hero.items[x]+ "'] .cost").text(get_purchase_value(hero.items[x]));  // set purchase value
         }
-        
     }
 }
 
@@ -36,9 +35,10 @@ function get_purchase_value(item){
     else if(item == "Shears"){
         return 20;
     }
-    else if(item == "Pretty-Rock"){
+    else if(item == "Pretty Rock"){
         return 30;
     }
+    // add additional item's value here
     else{
         return 1;  // default
     }
