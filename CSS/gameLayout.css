@@ -99,8 +99,8 @@
 
 /* bog terraain */
 .bog{
-    background-color: rgb(174, 78, 212);
-    background-image: url();
+    background-color: rgb(171, 132, 99);
+    background-image: url("../images/bog.png");
 }
 
 .swamp{
