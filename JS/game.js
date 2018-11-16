@@ -24,6 +24,8 @@ function update_energy(){
 function movement()
 {
 	updateloc();
+	bog(); //Checks to see if moving into a bog. We can change this later
+	       //such that it checks for all types of terrain 
 	update_energy();
 	noEnergy();
 	win_game();
@@ -75,4 +77,18 @@ function movement()
    move_hero_down_graph();
    display_one_block_around(hero.row_coordinate, hero.column_coordinate);
    movement();
+}
+
+//Function for hero movement in a bog. If their energy is less than 3,
+//game over, otherwise walking into a bog take two energy points
+function bog()
+{
+	if (hero.energy < 3) {
+            alert("You don't have enough energy to get out!");
+            game_over();
+        }
+
+        //alert("You are in a bog, extra energy consumed!");
+        hero.energy--;
+    }
 }
