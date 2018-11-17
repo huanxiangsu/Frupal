@@ -30,6 +30,7 @@ function movement()
 	noEnergy();
 	win_game();
 	encounter_power_bar();	// Checks to see if hero has found a power bar
+	encounter_binoculars();  // check to see if hero found binoculars
 }
 
 // TODO should i call the graphic movement functions from these functions below?
@@ -46,7 +47,7 @@ function movement()
   else
     hero.row_coordinate += 1;
    move_hero_up_graph();
-   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
+   update_visibility(hero.row_coordinate, hero.column_coordinate); // update visibility with or without binoculars.
    movement();
 }
  function move_left()
@@ -56,7 +57,7 @@ function movement()
   else
     hero.column_coordinate -= 1;
    move_hero_left_graph();
-   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
+   update_visibility(hero.row_coordinate, hero.column_coordinate);
    movement();
 }
  function move_right()
@@ -66,7 +67,7 @@ function movement()
   else
     hero.column_coordinate += 1;
    move_hero_right_graph();
-   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
+   update_visibility(hero.row_coordinate, hero.column_coordinate);
    movement();
 }
  function move_down()
@@ -76,7 +77,7 @@ function movement()
   else
     hero.row_coordinate -= 1;
    move_hero_down_graph();
-   display_one_block_around(hero.row_coordinate, hero.column_coordinate);
+   update_visibility(hero.row_coordinate, hero.column_coordinate);
    movement();
 }
 
