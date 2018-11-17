@@ -29,6 +29,7 @@ function movement()
 	update_energy();
 	noEnergy();
 	win_game();
+	encounter_power_bar();	// Checks to see if hero has found a power bar
 }
 
 // TODO should i call the graphic movement functions from these functions below?
