@@ -90,5 +90,5 @@ function bog()
 
         //alert("You are in a bog, extra energy consumed!");
         hero.energy--;
-    }
+    
 }
