@@ -18,10 +18,6 @@
     <div class = "container-fluid pageHeader">
         <h1 class="gameTitle">Frupal</h1>
     </div>
-    
-    <!--------Imports "map" file on localStorage----------------------->
-    <script src="map.html"></script>
-    <script src="map"></script>
 	
     <!----------------------------Game Start Menu---------------------->
     <div class="container-fluid" id="startPage">
@@ -69,8 +65,8 @@
                     <form>
                         Current Location <input type="text" id="currentlocation"><br>
                         Energy <input type="text" id="energy"><br>
-                        Whiffles <input type="text" name="whiffles" value="100"><br>
-                        Messages <input type="text" name="messages" value="You are standing in a dark forest"><br>
+                        Whiffles <input type="text" id="whiffles"><br>
+                        Messages <input type="text" name="messages"><br>
                     </form>
                 </div>
 
@@ -101,6 +97,9 @@
         <button class="btn-danger startBtn" type="button" onclick="exitGame();"><b>Exit Game</b></button><br>
     </div>
 
+    <!--------Imports "map" file on localStorage----------------------->
+    <script src="map.html"></script>
+    <script src="map"></script>
 	
     <!-- include JavaScript files here -->
     <script src="JS/global.js"></script>
@@ -111,5 +110,6 @@
     <script src="JS/discover_jewel.js"></script>
     <script src="JS/inventory.js"></script>
     <script src="JS/power_bar.js"></script>
+    <script src="JS/binoculars.js"></script>
 </body>
 </html>
