@@ -38,6 +38,9 @@ function get_purchase_value(item){
     else if(item == "Pretty Rock"){
         return 30;
     }
+    else if(item == "Binoculars"){
+        return 50;
+    }
     // add additional item's value here
     else{
         return 1;  // default
