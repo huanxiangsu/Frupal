@@ -6,6 +6,8 @@ function create_power_bar(){
 }
 // function that removes the power bar from the map, this function is called once a power bar is purchased
 function delete_power_bar(){
+	remove_item_in_cell(powerbar.x,powerbar.y);
+	map[powerbar.x][powerbar.y].obstacle = "None";
 	powerbar.x = null;
 	powerbar.y = null;
 }
