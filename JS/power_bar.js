@@ -22,10 +22,13 @@ function encounter_power_bar(){
 			if(hero.whiffles == 0){
 				alert("You don't have enough whiffles to purchase a power bar!");	
 			}
-			hero.energy += 20;	
-			hero.whiffles--;
-			// remove the power bar once user purchases it
-			delete_power_bar();	
+			else{
+				hero.energy += 20;	
+				hero.whiffles--;
+				document.getElementById("whiffles").value = hero.whiffles;
+				// remove the power bar once user purchases it
+				delete_power_bar();	
 		}
 	}
+}
 }
