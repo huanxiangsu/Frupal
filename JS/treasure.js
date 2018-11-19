@@ -2,7 +2,7 @@
 function create_treasure_1(){
   t_1.x = Math.floor(Math.random()*(mapSize));
   t_1.y = Math.floor(Math.random()*(mapSize));
-  map[t_1.x][t_1.y].obstacle = "Type 1 Treasure Chest";
+  map[t_1.x][t_1.y].obstacle = "Treasure1";
 }
 
 // function that removes the treasure chest from the map, this function is called once whiffles are updated
