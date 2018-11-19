@@ -13,6 +13,7 @@ function startGame(){
     if(parse_map_file("map")){  // when new name, parse map file
         create_royal_jewel();  //setup the location of royal diamond on the map.
        	create_power_bar();	// setup the location of the power bar on the map
+	create_treasure_1();    // setup the location of treasure 1 on the map
 	create_binoculars();  // setup binoculars
 	document.getElementById("currentlocation").value=get_hero_position();
         document.getElementById("energy").value=get_energy();
