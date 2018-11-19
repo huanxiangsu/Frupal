@@ -85,12 +85,13 @@ function movement()
 //game over, otherwise walking into a bog take two energy points
 function bog()
 {
-	if (hero.energy < 3) {
-            alert("You don't have enough energy to get out!");
-            game_over();
-        }
-
-        //alert("You are in a bog, extra energy consumed!");
-        //hero.energy--;
-    
+	if (map[hero.row_coordinate][hero.column_coordinate].terrain == 4)
+	{
+		if (hero.energy < 3) {
+            		alert("You don't have enough energy to get out!");
+            		game_over();
+        	}
+        	//alert("You are in a bog, extra energy consumed!");
+        	hero.energy--;
+	}
 }
