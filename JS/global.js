@@ -24,7 +24,7 @@ var powerbar = {
   y: 0,
 }
 // contains the coordinates of type 1 treasure on the map
-var t1 = {
+var t_1 = {
   x: 0,
   y: 0,
 }
