@@ -23,12 +23,14 @@ function update_energy(){
 
 function movement()
 {
+	obstacle = map[hero.row_coordinate][hero.column_coordinate].obstacle;
 	updateloc();
 	bog(); //Checks to see if moving into a bog. We can change this later
 	       //such that it checks for all types of terrain 
 	update_energy();
 	noEnergy();
 	win_game();
+	if (obstacle in tools) encounter_tool(obstacle);
 	encounter_power_bar();	// Checks to see if hero has found a power bar
 	encounter_binoculars();  // check to see if hero found binoculars
 }
