@@ -26,3 +26,21 @@ function encounter_treasure_1(){
     delete_treasure_1();
     }
 }
+
+// Function to check if hero encountered a treasure2
+function encounterTreasure2 () {
+  //If at a treasure2, the hero's whiffles goes to 0.
+  if (map[hero.row_coordinate][hero.column_coordinate].obstacle == "Treasure2") {
+    hero.whiffles = 0;
+    documnet.getElementById("whiffles").value = get_whiffles();
+    remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);
+    map[hero.row_coordinate][hero.column_coordinate].obstacle == "None";
+    alert("OH NO! The treasure was a trap, you lost your whiffles!");
+  }
+}
+
+//Check if the hero was encountered any treasure type
+function treasure() {
+  encounter_treasure_1();
+  encounterTreasure2();
+}
