@@ -27,6 +27,43 @@ function get_bush_loc()
   return bush.x +',' + bush.y;
 }
 
+//hero lands in a cell containing blackberry bushes
+function encounter_bush()
+{
+   //obstacle 4 energy points
+   if ((eval(hero.row_coordinate) == eval(bush.x)) && ((eval(hero.column_coordinate) == eval(bush.y)))
+   {
+	alert("Oh no! You encountered a blackberry bush! Removing it costs energy and whiffles");
+   	
+	var energyLost = bush.energy -1;
+        var energyRemaining = hero.energy - energyLost;
+        
+	if (energyRemaining < 0)
+        {
+		alert("You do not have enough energy! Game over!
+		game_over();
+
+  	}
+	elif ()
+	{
+		//check for whiffles below zero
+	}         
+	else
+	{
+		hero.energy = energyRemaining;
+		remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);  // remove the graphic item in the graphic map
+		map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";  // set this cell's item to "None" in map file after removed from graphic map, must be in this sequence.  
+	
+		//Need to update whiffles
+	}
+}
+
+
+
+
+
+
+
 
 // Load the rock into a random cell in the map.
 function create_rock()
