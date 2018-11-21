@@ -32,7 +32,7 @@ function encounterTreasure2 () {
   //If at a treasure2, the hero's whiffles goes to 0.
   if (map[hero.row_coordinate][hero.column_coordinate].obstacle == "Treasure2") {
     hero.whiffles = 0;
-    documnet.getElementById("whiffles").value = get_whiffles();
+    document.getElementById("whiffles").value = get_whiffles();
     remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);
     map[hero.row_coordinate][hero.column_coordinate].obstacle == "None";
     alert("OH NO! The treasure was a trap, you lost your whiffles!");
