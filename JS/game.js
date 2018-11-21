@@ -4,7 +4,7 @@ document.getElementById("whiffles").value=get_whiffles();
 document.getElementById("terrain").value=get_terrain();
 
 //Gets the terrain of the hero's current location
-fucntion get_terrain() {
+function get_terrain() {
 	if (map[hero.row_coordinate][hero.column_coordinate].terrain == 1)
        		return "Forest";
     	
