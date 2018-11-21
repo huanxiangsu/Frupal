@@ -16,8 +16,8 @@ function startGame(){
 	create_treasure_1();    // setup the location of treasure 1 on the map
 	create_binoculars();  // setup binoculars
 	create_blackberry_bush();
-	create_rock();
-	create_tree();
+//	create_rock();
+//	create_tree();
 	document.getElementById("currentlocation").value=get_hero_position();
         document.getElementById("energy").value=get_energy();
 	document.getElementById("whiffles").value = hero.whiffles;
