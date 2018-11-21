@@ -1,5 +1,11 @@
 document.getElementById("currentlocation").value=get_hero_position();
 document.getElementById("energy").value=get_energy();
+document.getElementById("whiffles").value=get_whiffles();
+
+// get the hero's whiffle count
+function get_whiffles() {
+	return hero.whiffles;
+}
 
 // get the coordinates of the position the hero is at
 function get_hero_position(){
@@ -8,7 +14,8 @@ function get_hero_position(){
 
 // update location of the hero
  function updateloc(){
- 	document.getElementById("currentlocation").value=get_hero_position();	
+ 	document.getElementById("currentlocation").value=get_hero_position();
+	document.getElementById("whiffles").value=get_whiffles();
  }
 
 // get the amount of energy the hero has left
