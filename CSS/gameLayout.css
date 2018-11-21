@@ -122,7 +122,7 @@ body{
 
 /* bog terraain */
 .bog{
-    background-color: rgb(171, 132, 99);
+    background-color: rgb(cadetblue);
     background-image: url("../images/bog.png");
 }
 
