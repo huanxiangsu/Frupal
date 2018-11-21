@@ -4,7 +4,7 @@ function create_blackberry_bush()
 
   bush.x = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
   bush.y = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
-  map[bush.x][bush.y].obstacle = "Bush";  // use to display blackberry bush image in the cell
+  map[bush.x][bush.y].obstacle = "Blackberry";  // use to display blackberry bush image in the cell
 
 }
 
@@ -21,7 +21,7 @@ function create_rock()
 
   rock.x = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
   rock.y = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
-  map[rock.x][rock.y].obstacle = "Rock";  // use to display rock image in the cell
+  map[rock.x][rock.y].obstacle = "Boulder";  // use to display rock image in the cell
 
 }
 
