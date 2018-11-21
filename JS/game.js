@@ -1,7 +1,7 @@
 document.getElementById("currentlocation").value=get_hero_position();
 document.getElementById("energy").value=get_energy();
 document.getElementById("whiffles").value=get_whiffles();
-document.getElementById("terrain").value=get_terrain();
+document.getElementById("terrain").value=get_terrain;
 
 //Gets the terrain of the hero's current location
 function get_terrain() {
