@@ -28,6 +28,25 @@ var t_1 = {
   x: 0,
   y: 0,
 }
+//obstacle blackberry bushes
+var bush = {
+  x: 0,
+  y: 0,
+}
+
+//obstacle rocks/boulders
+var rocks = {
+  x: 0,
+  y: 0,
+}
+
+//obstacle tree
+var tree = {
+  x: 0,
+  y: 0,
+}
+
+
 //dictionary of the tools with names as keys with a value of an array[0]=cost and array[1]=energy used to apply
 var tools = {
     "Hatchet":[15,8],
