@@ -238,3 +238,48 @@ $("#map").keyup(function(){
 $("#map").keydown(function(){
     event.preventDefault();
 });
+
+
+// decrease cellSize by 5px each time click zoom out button.
+function adjust_size_smaller(){
+    if(cellSize > 10){
+        cellSize -= 5;
+        update_map_size();
+    }
+}
+
+// increase cellSize by 5px each time click zoom out button.
+function adjust_size_bigger(){
+    if(cellSize*mapSize < window.screen.width - 5*mapSize){
+        cellSize += 5;
+        update_map_size();
+    }
+}
+
+// update the overall sizing of the map based on the updated cellSize value.
+function update_map_size(){
+    setUpMapSize();
+    setupHero();
+
+    var l_pos = 0;
+    var u_pos = 0;
+    var row = 0;
+    var x, i, j;
+    for(i = 0; i < mapSize; i++){
+        u_pos = i * cellSize;
+        row = mapSize - (i+1);  // row from (mapSize-1) to 0
+        for(j = 0; j < mapSize; j++){
+            l_pos = j * cellSize;
+            x = document.getElementById(row + "-" + j);
+            x.setAttribute("style", "left:"+l_pos+"px; top:"+u_pos+"px; height:" + cellSize + "px; width:" + cellSize + "px;");
+            x = document.getElementById(row + "--" + j);
+            if(x != undefined){  
+                x.setAttribute("style", "left:"+l_pos+"px; top:"+u_pos+"px; height:" + cellSize + "px; width:" + cellSize + "px;");
+            }
+        }
+    }
+}
+
+// add event to the two adjuster buttons
+$("#adjust_smaller").click(adjust_size_smaller);
+$("#adjust_bigger").click(adjust_size_bigger);
