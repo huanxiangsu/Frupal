@@ -35,7 +35,7 @@ var bush = {
 }
 
 //obstacle rocks/boulders
-var rocks = {
+var rock = {
   x: 0,
   y: 0,
 }
