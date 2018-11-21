@@ -2,7 +2,7 @@
 //to buy. Then, using Huanxiang's functions, it removes the icon from the map
 //and sets the coordinate obstacle to "None"
 function encounter_tool(tool){
-    price = tools[tool[0]];
+    price = tools[tool][0];
     var response = confirm("You found a " + tool + "! Would you like to purchase it for " + price + " whiffles?");
     if(response == true){
         if(hero.whiffles < price){
