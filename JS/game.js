@@ -133,10 +133,11 @@ function bog()
 function water(move) {
 	if (map[hero.row_coordinate][hero.column_coordinate].terrain == 2) {
         	if (hero.energy <= 1) {
-            	alert("You ran out of energy and can't espace the water!");
+            	alert("You can't espace the water!");
             	game_over();
         	}
-        	else if (move == "down")
+		hero.energy += 1;
+        	if (move == "down")
             		move_up();
         	else if (move == "up")
             		move_down();
