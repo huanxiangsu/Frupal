@@ -1,6 +1,24 @@
 document.getElementById("currentlocation").value=get_hero_position();
 document.getElementById("energy").value=get_energy();
 document.getElementById("whiffles").value=get_whiffles();
+document.getElementById("terrain").value=get_terrain;
+
+//Gets the terrain of the hero's current location
+function get_terrain() {
+	if (map[hero.row_coordinate][hero.column_coordinate].terrain == 1)
+       		return "Forest";
+    	else if (map[hero.row_coordinate][hero.column_coordinate].terrain == 2) 
+        	return "River";
+    	else if (map[hero.row_coordinate][hero.column_coordinate].terrain == 3) 
+        	return "Wall";
+    	else if (map[hero.row_coordinate][hero.column_coordinate].terrain == 4) 
+        	return "Bog";
+    	else if (map[hero.row_coordinate][hero.column_coordinate].terrain == 5) 
+        	return "Swamp";
+    	else 
+        	return "Meadow";
+}
+
 
 // get the hero's whiffle count
 function get_whiffles() {
@@ -16,6 +34,7 @@ function get_hero_position(){
  function updateloc(){
  	document.getElementById("currentlocation").value=get_hero_position();
 	document.getElementById("whiffles").value=get_whiffles();
+	document.getElementById("terrain").value=get_terrain();
  }
 
 // get the amount of energy the hero has left
@@ -57,6 +76,7 @@ function movement()
     hero.row_coordinate += 1;
    move_hero_up_graph();
    update_visibility(hero.row_coordinate, hero.column_coordinate); // update visibility with or without binoculars.
+   water("up"); //Check if hero's in water
    movement();
 }
  function move_left()
@@ -67,6 +87,7 @@ function movement()
     hero.column_coordinate -= 1;
    move_hero_left_graph();
    update_visibility(hero.row_coordinate, hero.column_coordinate);
+   water("left"); //Check if hero's in water.
    movement();
 }
  function move_right()
@@ -77,6 +98,7 @@ function movement()
     hero.column_coordinate += 1;
    move_hero_right_graph();
    update_visibility(hero.row_coordinate, hero.column_coordinate);
+   water("right"); //Check if hero's in water.
    movement();
 }
  function move_down()
@@ -87,6 +109,7 @@ function movement()
     hero.row_coordinate -= 1;
    move_hero_down_graph();
    update_visibility(hero.row_coordinate, hero.column_coordinate);
+   water("down"); //Check if hero's in water.
    movement();
 }
 
@@ -102,5 +125,26 @@ function bog()
         	}
         	//alert("You are in a bog, extra energy consumed!");
         	hero.energy--;
+	}
+}
+
+//Checks if a hero is standing in water. If so, move back to previous cell.
+//If in water and energy <= 1, game over.
+function water(move) {
+	if (map[hero.row_coordinate][hero.column_coordinate].terrain == 2) {
+        	if (hero.energy <= 1) {
+            	alert("You can't espace the water!");
+            	game_over();
+        	}
+		hero.energy += 1;
+        	if (move == "down")
+            		move_up();
+        	else if (move == "up")
+            		move_down();
+        	else if (move == "right")
+            		move_left();
+        	else
+            		move_right();
+    
 	}
 }

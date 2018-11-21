@@ -27,6 +27,7 @@ function startGame(){
         //display_all_blocks();  // remove comment for testing only, display all cells to viewable
         startPage.style.display = "none"; // hide the menu page
         gamePage.style.display = "block";  // display the game with the map and control-panel
+	document.getElementById("terrain").value=get_terrain(); //Gets the terrain of heros location
     }
     else{
         alert("Loading map file failed!");
