@@ -28,6 +28,17 @@ var t_1 = {
   x: 0,
   y: 0,
 }
+//dictionary of the tools with names as keys with a value of an array[0]=cost and array[1]=energy used to apply
+var tools = {
+    "Hatchet":[15,8],
+    "Axe":[30,6],
+    "Chainsaw":[60,2],
+    "Chisel":[5,15],
+    "Sledgehammer":[25,12],
+    "Jackhammer":[100,4],
+    "Machete":[25,2],
+    "Shears":[35,2]
+};
 
 var map;  // two dimensional array to store each map cell
 // when parsing script performed successfully, it can use as:
