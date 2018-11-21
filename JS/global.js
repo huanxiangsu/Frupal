@@ -37,8 +37,7 @@ var tools = {
     "Sledgehammer":[25,12],
     "Jackhammer":[100,4],
     "Machete":[25,2],
-    "Shears":[35,2],
-    "Pretty Rock":[1]
+    "Shears":[35,2]
 };
 
 var map;  // two dimensional array to store each map cell
