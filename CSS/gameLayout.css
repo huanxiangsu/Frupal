@@ -1,6 +1,14 @@
+body{
+    background-color:rgb(191, 235, 232);
+    background-image: url("../images/sea3.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
 .pageHeader{
     height: 80px;
     background-color: black;
+    opacity: 0.75;
 }
 
 .gameTitle{
@@ -13,13 +21,23 @@
 }
 
 .startBtn{
-    width: 100%;
+    width: 35%;
     padding: 15px;
     font-size: 25px;
     text-align: center;
     margin: 3px;
 }
 
+.btn-exit{
+    width: 100%;
+}
+
+.btn-adjust{
+    width: 5%;
+    font-size: 20px;
+    padding: 5px;
+    margin: 3px;
+}
 
 .btn-inventory{
     width: 70%;
@@ -48,11 +66,16 @@
 
 #game{
     display: none;
+    background-image: url("../images/sea5.jpeg");
 }
 
 #map{
     position: relative;
-    border: 20px solid rgb(170, 123, 61);
+    /*border: 20px solid rgb(170, 123, 61);*/
+    border: 20px solid transparent;
+    border-image-source: url("../images/border1.svg");
+    border-image-slice: 45;
+    border-image-repeat: stretch;
 }
 
 /* Style of the hero block */
@@ -136,11 +159,11 @@
 }
 
 .Treasure1{
-    background-image: url("../images/treasure1.png");
+    background-image: url("../images/treasure2.png");
 }
 
 .Treasure2{
-    background-image: url("../images/treasure2.png");
+    background-image: url("../images/treasure1.png");
 }
 
 .Powerbar{
