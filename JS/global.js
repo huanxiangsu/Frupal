@@ -39,7 +39,7 @@ var tools = {
     "Machete":[25,2],
     "Shears":[35,2]
 };
-
+var powerbar_sound = document.getElementById('powerbar_sound');
 var map;  // two dimensional array to store each map cell
 // when parsing script performed successfully, it can use as:
 // example: map[3][5].row  map[3][5].col  map[3][5].visibility  map[3][5].terrain  map[3][5].obstacle
