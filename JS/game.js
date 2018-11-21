@@ -7,7 +7,6 @@ document.getElementById("terrain").value=get_terrain();
 function get_terrain() {
 	if (map[hero.row_coordinate][hero.column_coordinate].terrain == 1)
        		return "Forest";
-    	
     	else if (map[hero.row_coordinate][hero.column_coordinate].terrain == 2) 
         	return "River";
     	else if (map[hero.row_coordinate][hero.column_coordinate].terrain == 3) 
