@@ -29,14 +29,8 @@ function setup_Inventory(){
 
 // to return the purchase value of a specific item.
 function get_purchase_value(item){
-    if(item == "Axe"){
-        return 10;
-    }
-    else if(item == "Shears"){
-        return 20;
-    }
-    else if(item == "Pretty Rock"){
-        return 30;
+    if (item in tools){
+        return tools[item][0];
     }
     else if(item == "Binoculars"){
         return 50;
