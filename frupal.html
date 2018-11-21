@@ -49,6 +49,12 @@
 
     <!-----------------------------New Game window------------------->
     <div id="game">
+	<!---- Cell size adjuster ---->
+        <div>
+            <button type="button" class="btn-primary btn-adjust" id="adjust_smaller"><span class="glyphicon glyphicon-zoom-out"></span></button>
+            <button type="button" class="btn-primary btn-adjust" id="adjust_bigger"><span class="glyphicon glyphicon-zoom-in"></span></button>
+        </div>
+	    
         <!----Game map---->
         <br>
         <div class="container" id="map" tabindex="0">
@@ -94,7 +100,7 @@
         </div>
         <br><br>
 	<!-- exit button -->
-        <button class="btn-danger startBtn" type="button" onclick="exitGame();"><b>Exit Game</b></button><br>
+        <button class="btn-danger startBtn btn-exit" type="button" onclick="exitGame();"><b>Exit Game</b></button><br>
     </div>
 
     <!--------Imports "map" file on localStorage----------------------->
