@@ -34,7 +34,7 @@ function encounterTreasure2 () {
     hero.whiffles = 0;
     document.getElementById("whiffles").value = get_whiffles();
     remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);
-    map[hero.row_coordinate][hero.column_coordinate].obstacle == "None";
+    map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";
     alert("OH NO! The treasure was a trap, you lost your whiffles!");
   }
 }
