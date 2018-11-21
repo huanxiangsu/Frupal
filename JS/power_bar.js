@@ -15,6 +15,7 @@ function delete_power_bar(){
 function encounter_power_bar(){
 	if((eval(hero.row_coordinate) == eval(powerbar.x)) && (eval(hero.column_coordinate) == eval(powerbar.y))){
 		var ask = confirm("You found a power bar! It costs one whiffle. Would you like to purchase it?");
+		var soundFlag = true;	
 		if(ask == true)
 		{
 			// if the user says they want to purchase the power bar
@@ -23,6 +24,13 @@ function encounter_power_bar(){
 				alert("You don't have enough whiffles to purchase a power bar!");	
 			}
 			else{
+				if(soundFlag){
+					var powerbar_sound = document.getElementById('powerbar_sound');
+					powerbar_sound.pause();
+					powerbar_sound.currentTime = 0;
+					powerbar_sound.play();
+					soundFlag = false;
+				}
 				hero.energy += 20;	
 				hero.whiffles--;
 				document.getElementById("whiffles").value = hero.whiffles;
