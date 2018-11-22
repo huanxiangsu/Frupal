@@ -28,21 +28,21 @@ var t_1 = {
   x: 0,
   y: 0,
 }
-//obstacle blackberry bushes
+// contains the coordinates of blackberry bush on the map
 var bush = {
   x: 0,
   y: 0,
   energy: 4  // energy required to remove the bush by hand
 }
 
-//obstacle rocks/boulders
+// contains the coordinates of rock on the map
 var rock = {
   x: 0,
   y: 0,
   energy: 16 //energy required to remove the rock by hand
 }
 
-//obstacle tree
+// contains the coordinates of tree on the map
 var tree = {
   x: 0,
   y: 0,
