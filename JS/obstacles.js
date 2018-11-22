@@ -2,6 +2,8 @@
 function create_blackberry_bush()
 {
   var i = 0;
+  
+  // Check if the map cell doesnt contain any other item
   while (i < mapSize*mapSize)
   {
       bush.x = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
@@ -58,9 +60,8 @@ function encounter_bush()
  	// hero doesn't have a tool. Remove obstacle by hand	
 	else
 	{
-   		//remove blacckberry bush by hand: 4 energy points
+   		//remove blackberry bush by hand: 4 energy points
 		energyLost = bush.energy;
-//		document.getElementById("messages").value = "Removing obstacle by hand"
 	}
 
 	//calculate remaining energy
@@ -126,6 +127,69 @@ function get_rock_loc()
 
 
 
+//hero lands in a cell containing rocks and boulders
+function encounter_rock()
+{
+   if ((eval(hero.row_coordinate) == eval(rock.x)) && (eval(hero.column_coordinate) == eval(rock.y)))
+   {
+
+   	//lose energy for moving into that map cell
+	var energyLost = 0;
+      
+	document.getElementById("terrain").value = "Rocks and Boulder" 
+	//tools that can remove the rocks and boulders: jackhammer, sledgehammer, chisel
+
+ 	// check if the inventory contains a jackhammer
+	if (hero.items.includes("Jackhammer"))
+	{
+		
+		energyLost = tools["Jackhammer"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Jackhammer"),1);		
+	}
+ 	// check if the inventory contains a sledgehammer	
+	else if (hero.items.includes("Sledgehammer"))
+	{
+		energyLost = tools["Sledgehammer"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Sledgehammer"),1);		
+	}
+ 	// check if the inventory contains a chisel	
+	else if (hero.items.includes("Chisel"))
+	{
+		energyLost = tools["Chisel"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Chisel"),1);		
+	}
+ 	// hero doesn't have a tool. Remove obstacle by hand	
+	else
+	{
+   		//remove rock by hand: 16 energy points
+		energyLost = rock.energy;
+	}
+
+	//calculate remaining energy
+        var energyRemaining = hero.energy - energyLost;
+	
+	if (energyRemaining <= 0)
+        {
+		alert("You do not have enough energy to remove the rock! Game over!")
+		game_over();
+
+  	}
+	else
+	{
+		hero.energy = energyRemaining;
+		document.getElementById("energy").value = hero.energy;
+		remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);  // remove the graphic item in the graphic map
+		map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";  // set this cell's item to "None" in map file after removed from graphic map, must be in this sequence.  
+		rock.x = null;
+		rock.y = null;	
+	}
+     }
+}
+
+
 
 // Load the tree into a random cell in the map.
 function create_tree()
@@ -160,3 +224,65 @@ function get_tree_loc()
 }
 
 
+
+//hero lands in a cell containing trees
+function encounter_tree()
+{
+   if ((eval(hero.row_coordinate) == eval(tree.x)) && (eval(hero.column_coordinate) == eval(tree.y)))
+   {
+
+   	//lose energy for moving into that map cell
+	var energyLost = 0;
+      
+	document.getElementById("terrain").value = "Trees" 
+	//tools that can remove the rocks and boulders: hatchet, axe, chainsaw
+
+ 	// check if the inventory contains a hatchet
+	if (hero.items.includes("Hatchet"))
+	{
+		
+		energyLost = tools["hatchet"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Hatchet"),1);		
+	}
+ 	// check if the inventory contains an axe	
+	else if (hero.items.includes("Axe"))
+	{
+		energyLost = tools["Axe"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Axe"),1);		
+	}
+ 	// check if the inventory contains a chainsaw	
+	else if (hero.items.includes("Chainsaw"))
+	{
+		energyLost = tools["Chainsaw"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Chainsaw"),1);		
+	}
+ 	// hero doesn't have a tool. Remove obstacle by hand	
+	else
+	{
+   		//remove Trees by hand: 10 energy points
+		energyLost = tree.energy;
+	}
+
+	//calculate remaining energy
+        var energyRemaining = hero.energy - energyLost;
+	
+	if (energyRemaining <= 0)
+        {
+		alert("You do not have enough energy to remove the tree! Game over!")
+		game_over();
+
+  	}
+	else
+	{
+		hero.energy = energyRemaining;
+		document.getElementById("energy").value = hero.energy;
+		remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);  // remove the graphic item in the graphic map
+		map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";  // set this cell's item to "None" in map file after removed from graphic map, must be in this sequence.  
+		tree.x = null;
+		tree.y = null;	
+	}
+     }
+}
