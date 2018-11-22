@@ -15,7 +15,7 @@ function startGame(){
        	create_power_bar();	// setup the location of the power bar on the map
 	create_treasure_1();    // setup the location of treasure 1 on the map
 	create_binoculars();  // setup binoculars
-//	create_blackberry_bush();
+	create_blackberry_bush();
 //	create_rock();
 //	create_tree();
 	document.getElementById("currentlocation").value=get_hero_position();

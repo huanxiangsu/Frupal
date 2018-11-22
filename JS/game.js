@@ -59,6 +59,7 @@ function movement()
 	if (obstacle in tools) encounter_tool(obstacle);
 	encounter_power_bar();	// Checks to see if hero has found a power bar
 	encounter_binoculars();  // check to see if hero found binoculars
+	encounter_bush(); //check to see if hero has found a blackberry bush
 }
 
 // TODO should i call the graphic movement functions from these functions below?

@@ -10,7 +10,7 @@ function create_blackberry_bush()
       // Check if the map doesnt contain any other item at that location
       if (map[bush.x][bush.y].obstacle == "None")
       {
-          //map[bush.x][bush.y].obstacle = "Blackberry";  // use to display blackberry bush image in the cell
+          map[bush.x][bush.y].obstacle = "Blackberry";  // use to display blackberry bush image in the cell
           break;
       }
       // map cell contains some other item. Find new (x,y) location for the obstacle.

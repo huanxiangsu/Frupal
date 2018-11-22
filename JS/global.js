@@ -32,18 +32,21 @@ var t_1 = {
 var bush = {
   x: 0,
   y: 0,
+  energy: 4  // energy required to remove the bush by hand
 }
 
 //obstacle rocks/boulders
 var rock = {
   x: 0,
   y: 0,
+  energy: 16 //energy required to remove the rock by hand
 }
 
 //obstacle tree
 var tree = {
   x: 0,
   y: 0,
+  energy: 10 // energy required to remove the tree by hand
 }
 
 
