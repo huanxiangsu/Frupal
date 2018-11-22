@@ -31,7 +31,7 @@ function get_bush_loc()
 //hero lands in a cell containing blackberry bushes
 function encounter_bush()
 {
-   if ((eval(hero.row_coordinate) == eval(bush.x)) && ((eval(hero.column_coordinate) == eval(bush.y)))
+   if ((eval(hero.row_coordinate) == eval(bush.x)) && (eval(hero.column_coordinate) == eval(bush.y)))
    {
    	//lose energy for moving into that map cell
 	var energyLost = -1;
@@ -39,7 +39,7 @@ function encounter_bush()
 	//tools that can remove the bush: machete, shears
 
  	// check if the inventory contains a machete	
-	if (hero.items.includes("Machete")
+	if (hero.items.includes("Machete"))
 	{
 		
 		energyLost -= tools["Machete"][1];
@@ -48,7 +48,7 @@ function encounter_bush()
 		document.getElementById("messages").value = "Using Machete"
 	}
  	// check if the inventory contains a pair of shears	
-	else if (hero.item.includes("Shears")
+	else if (hero.item.includes("Shears"))
 	{
 		energyLost -= tools["Shears"][1];
 		//remove the tool from the inventory
@@ -68,7 +68,7 @@ function encounter_bush()
 	
 	if (energyRemaining < 0)
         {
-		alert("You do not have enough energy to remove the blackberry bush! Game over!
+		alert("You do not have enough energy to remove the blackberry bush! Game over!")
 		game_over();
 
   	}
