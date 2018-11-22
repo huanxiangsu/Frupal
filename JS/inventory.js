@@ -82,6 +82,24 @@ function add_to_inventory(item){
     }
 }
 
+
+// remove a specific item from the inventory block.
+// simply call it like remove_item_from_inventory("Shears");
+function remove_item_from_inventory(item){
+    var num;
+    if(document.getElementById(item)){
+        num = $("[id='"+item+"'] .quantity").text();
+        num = eval(num);
+        --num;
+        if(num > 0){
+            $("[id='"+item+"'] .quantity").text(num);
+        }
+        else{
+            $("[id='"+item+"']").remove();
+        }
+    }
+}
+
 /* for test
 function add_item(){
     var value = document.getElementById("demo").value;
