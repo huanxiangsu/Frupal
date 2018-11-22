@@ -19,6 +19,7 @@ function create_blackberry_bush()
 	++i;
 	continue;		
       }
+   }
 }
 
 // Get the x,y location of the blackberry bush
@@ -44,6 +45,7 @@ function encounter_bush()
 		energyLost -= tools["Machete"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Machete"),1);		
+		document.getElementById("messages").value = "Using Machete"
 	}
  	// check if the inventory contains a pair of shears	
 	else if (hero.item.includes("Shears")
@@ -51,12 +53,14 @@ function encounter_bush()
 		energyLost -= tools["Shears"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Shears"),1);		
+		document.getElementById("messages").value = "Using Shears"
 	}
  	// hero doesn't have a tool. Remove obstacle by hand	
 	else
 	{
    		//remove blacckberry bush by hand: 4 energy points
 		energyLost -= bush.energy;
+		document.getElementById("messages").value = "Removing obstacle by hand"
 	}
 
 	//calculate remaining energy
@@ -108,7 +112,7 @@ function create_rock()
 	++i;
 	continue;		
       }
-
+  }
 }
 
 // Get the x,y location of the rock
@@ -144,7 +148,7 @@ function create_tree()
 	++i;
 	continue;		
       }
-
+  }
 }
 
 // Get the x,y location of the tree
