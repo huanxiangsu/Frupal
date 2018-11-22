@@ -10,7 +10,7 @@ function create_blackberry_bush()
       // Check if the map doesnt contain any other item at that location
       if (map[bush.x][bush.y].obstacle == "None")
       {
-          map[bush.x][bush.y].obstacle = "Blackberry";  // use to display blackberry bush image in the cell
+          //map[bush.x][bush.y].obstacle = "Blackberry";  // use to display blackberry bush image in the cell
           break;
       }
       // map cell contains some other item. Find new (x,y) location for the obstacle.
@@ -30,32 +30,52 @@ function get_bush_loc()
 //hero lands in a cell containing blackberry bushes
 function encounter_bush()
 {
-   //obstacle 4 energy points
    if ((eval(hero.row_coordinate) == eval(bush.x)) && ((eval(hero.column_coordinate) == eval(bush.y)))
    {
-	alert("Oh no! You encountered a blackberry bush! Removing it costs energy and whiffles");
-   	
-	var energyLost = bush.energy -1;
+   	//lose energy for moving into that map cell
+	var energyLost = -1;
+       
+	//tools that can remove the bush: machete, shears
+
+ 	// check if the inventory contains a machete	
+	if (hero.items.includes("Machete")
+	{
+		
+		energyLost -= tools["Machete"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Machete"),1);		
+	}
+ 	// check if the inventory contains a pair of shears	
+	else if (hero.item.includes("Shears")
+	{
+		energyLost -= tools["Shears"][1];
+		//remove the tool from the inventory
+		hero.items.splice(hero.items.indexOf("Shears"),1);		
+	}
+ 	// hero doesn't have a tool. Remove obstacle by hand	
+	else
+	{
+   		//remove blacckberry bush by hand: 4 energy points
+		energyLost -= bush.energy;
+	}
+
+	//calculate remaining energy
         var energyRemaining = hero.energy - energyLost;
-        
+	
 	if (energyRemaining < 0)
         {
-		alert("You do not have enough energy! Game over!
+		alert("You do not have enough energy to remove the blackberry bush! Game over!
 		game_over();
 
   	}
-	elif ()
-	{
-		//check for whiffles below zero
-	}         
 	else
 	{
 		hero.energy = energyRemaining;
 		remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);  // remove the graphic item in the graphic map
 		map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";  // set this cell's item to "None" in map file after removed from graphic map, must be in this sequence.  
 	
-		//Need to update whiffles
 	}
+     }
 }
 
 
