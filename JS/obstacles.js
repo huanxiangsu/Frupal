@@ -49,6 +49,7 @@ function encounter_bush()
 		energyLost = tools["Machete"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Machete"),1);		
+		remove_item_from_inventory("Machete");
 	}
  	// check if the inventory contains a pair of shears	
 	else if (hero.items.includes("Shears"))
@@ -56,6 +57,7 @@ function encounter_bush()
 		energyLost = tools["Shears"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Shears"),1);		
+		remove_item_from_inventory("Shears");
 	}
  	// hero doesn't have a tool. Remove obstacle by hand	
 	else
@@ -146,6 +148,7 @@ function encounter_rock()
 		energyLost = tools["Jackhammer"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Jackhammer"),1);		
+		remove_item_from_inventory("Jackhammer");
 	}
  	// check if the inventory contains a sledgehammer	
 	else if (hero.items.includes("Sledgehammer"))
@@ -153,6 +156,7 @@ function encounter_rock()
 		energyLost = tools["Sledgehammer"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Sledgehammer"),1);		
+		remove_item_from_inventory("Sledgehammer");
 	}
  	// check if the inventory contains a chisel	
 	else if (hero.items.includes("Chisel"))
@@ -160,6 +164,8 @@ function encounter_rock()
 		energyLost = tools["Chisel"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Chisel"),1);		
+		remove_item_from_inventory("Chisel");
+
 	}
  	// hero doesn't have a tool. Remove obstacle by hand	
 	else
@@ -244,6 +250,7 @@ function encounter_tree()
 		energyLost = tools["hatchet"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Hatchet"),1);		
+		remove_item_from_inventory("Hatchet");
 	}
  	// check if the inventory contains an axe	
 	else if (hero.items.includes("Axe"))
@@ -251,6 +258,7 @@ function encounter_tree()
 		energyLost = tools["Axe"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Axe"),1);		
+		remove_item_from_inventory("Axe");
 	}
  	// check if the inventory contains a chainsaw	
 	else if (hero.items.includes("Chainsaw"))
@@ -258,6 +266,7 @@ function encounter_tree()
 		energyLost = tools["Chainsaw"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Chainsaw"),1);		
+		remove_item_from_inventory("Chainsaw");
 	}
  	// hero doesn't have a tool. Remove obstacle by hand	
 	else
