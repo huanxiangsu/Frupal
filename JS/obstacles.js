@@ -33,40 +33,40 @@ function encounter_bush()
 {
    if ((eval(hero.row_coordinate) == eval(bush.x)) && (eval(hero.column_coordinate) == eval(bush.y)))
    {
+
    	//lose energy for moving into that map cell
-	var energyLost = -1;
-       
+	var energyLost = 0;
+      
+	document.getElementById("terrain").value = "Blackberry Bush" 
 	//tools that can remove the bush: machete, shears
 
  	// check if the inventory contains a machete	
 	if (hero.items.includes("Machete"))
 	{
 		
-		energyLost -= tools["Machete"][1];
+		energyLost = tools["Machete"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Machete"),1);		
-//		document.getElementById("messages").value = "Using Machete"
 	}
  	// check if the inventory contains a pair of shears	
 	else if (hero.items.includes("Shears"))
 	{
-		energyLost -= tools["Shears"][1];
+		energyLost = tools["Shears"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Shears"),1);		
-//		document.getElementById("messages").value = "Using Shears"
 	}
  	// hero doesn't have a tool. Remove obstacle by hand	
 	else
 	{
    		//remove blacckberry bush by hand: 4 energy points
-		energyLost -= bush.energy;
+		energyLost = bush.energy;
 //		document.getElementById("messages").value = "Removing obstacle by hand"
 	}
 
 	//calculate remaining energy
         var energyRemaining = hero.energy - energyLost;
 	
-	if (energyRemaining < 0)
+	if (energyRemaining <= 0)
         {
 		alert("You do not have enough energy to remove the blackberry bush! Game over!")
 		game_over();
@@ -75,9 +75,11 @@ function encounter_bush()
 	else
 	{
 		hero.energy = energyRemaining;
+		document.getElementById("energy").value = hero.energy;
 		remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);  // remove the graphic item in the graphic map
 		map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";  // set this cell's item to "None" in map file after removed from graphic map, must be in this sequence.  
-	
+		bush.x = null;
+		bush.y = null;	
 	}
      }
 }
