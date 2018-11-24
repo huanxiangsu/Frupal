@@ -135,6 +135,15 @@ function bog()
 //If in water and energy <= 1, game over.
 function water(move) {
 	if (map[hero.row_coordinate][hero.column_coordinate].terrain == 2) {
+		var water_sound = document.getElementById('water_sound');
+		var soundFlag = true;
+		if(soundFlag)
+		{
+			water_sound.pause();
+			water_sound.currentTime = 0;
+			water_sound.play();
+			soundFlag = false;
+		}
         	if (hero.energy <= 1) {
             	alert("You can't espace the water!");
             	game_over();
