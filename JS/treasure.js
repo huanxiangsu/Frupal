@@ -15,9 +15,18 @@ function delete_treasure_1(){
 
 // this function tells the user they have found treasure & updates whiffles
 function encounter_treasure_1(){
-  if((eval(hero.row_coordinate) == eval(t_1.x)) && (eval(hero.column_coordinate) == eval(t_1.y))){
+ if((eval(hero.row_coordinate) == eval(t_1.x)) && (eval(hero.column_coordinate) == eval(t_1.y))){
     alert("You found a Type 1 Treasure Chest! 100 whiffles have been added to your bank account.");
-
+  var treasure1_sound = document.getElementById('treasure1_sound');
+  var soundFlag = true;
+  if(soundFlag)
+  {
+ 	treasure1_sound.pause();
+	treasure1_sound.currentTime = 0;
+	treasure1_sound.play();
+	soundFlag = false;
+  }
+ 
     // increase bank account & update bank account display
     hero.whiffles += 100;
     document.getElementById("whiffles").value = hero.whiffles;
