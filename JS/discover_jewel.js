@@ -18,6 +18,15 @@ function win_game()
 {
   if ( (eval(hero.row_coordinate) == eval(jewel.x)) && (eval(hero.column_coordinate) == eval(jewel.y)) )
   {
+    var jewel_sound = document.getElementById('jewel_sound');
+    var soundFlag = true;
+    if(soundFlag)
+    {
+   	jewel_sound.pause();
+	jewel_sound.currentTime = 0;
+	jewel_sound.play();
+	soundFlag = false;
+    }
     alert("Royal Jewel Found! Game over.");
     game_over();
   }
@@ -30,6 +39,15 @@ function noEnergy() {
     return;
   
   if (hero.energy == 0) {
+    var noenergy_sound = document.getElementById('noenergy_sound');
+    var soundFlag = true;
+    if(soundFlag)
+    {
+   	noenergy_sound.pause();
+	noenergy_sound.currentTime = 0;
+	noenergy_sound.play();
+	soundFlag = false;
+    }
     alert ("You ran out of energy!");
     game_over();
   }
