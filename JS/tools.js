@@ -9,6 +9,18 @@ function encounter_tool(tool){
             alert("Sorry! you don't have enough whiffles to purchase this item!");
         }
         else{
+	    var chainsaw_sound = document.getElementById('chainsaw_sound');
+	    var soundFlag = true;
+	    if(soundFlag)
+	    {
+	   	if(tool == "Chainsaw")
+		{
+			chainsaw_sound.pause();
+			chainsaw_sound.currentTime = 0;
+			chainsaw_sound.play();
+			soundFlag = false;
+		}
+	    }
             hero.whiffles -= price;   // deducted money by the cost of the hatchet
             document.getElementById("whiffles").value = hero.whiffles;  
             hero.items.push(tool); 
