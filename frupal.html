@@ -22,9 +22,9 @@
     <!----------------------------Game Start Menu---------------------->
     <div class="container-fluid" id="startPage">
         <div class="gameMenu">
-            <button class="btn-primary startBtn" type="button" onclick="startGame()"><b>New Game</b></button><br>
-            <button class="btn-primary startBtn" type="button" onclick="continueGame()"><b>Continue Game</b></button><br>
-            <button class="btn-info startBtn" type="button" data-toggle="modal" data-target="#config"><b>Game Configuration</b></button>
+            <button class="btn-primary startBtn" type="button" onclick="document.getElementById('menu_sound').play();startGame()"><b>New Game</b></button><br>
+            <button class="btn-primary startBtn" type="button" onclick="document.getElementById('menu_sound').play();continueGame()"><b>Continue Game</b></button><br>
+            <button class="btn-info startBtn" type="button" onclick="document.getElementById('menu_sound').play()" data-toggle="modal" data-target="#config"><b>Game Configuration</b></button>
         </div>
     </div>
 
@@ -129,5 +129,6 @@
     <audio src="sounds/chainsaw.mp3" id="chainsaw_sound">
     <audio src="sounds/noenergy.mp3" id="noenergy_sound">
     <audio src="sounds/water.mp3" id="water_sound">
+    <audio src="sounds/menu1.mp3" id="menu_sound">
 </body>
 </html>
