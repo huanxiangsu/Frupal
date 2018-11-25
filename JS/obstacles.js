@@ -33,13 +33,13 @@ function get_bush_loc()
 //hero lands in a cell containing blackberry bushes
 function encounter_bush()
 {
-   if ((eval(hero.row_coordinate) == eval(bush.x)) && (eval(hero.column_coordinate) == eval(bush.y)))
+   if(map[hero.row_coordinate][hero.column_coordinate].obstacle == "Blackberry")
    {
 
    	//lose energy for moving into that map cell
 	var energyLost = 0;
       
-	document.getElementById("terrain").value = "Blackberry Bush" 
+	document.getElementById("terrain").value = "Blackberry Bush";
 	//tools that can remove the bush: machete, shears
 
  	// check if the inventory contains a machete	
@@ -71,7 +71,7 @@ function encounter_bush()
 	
 	if (energyRemaining <= 0)
         {
-		alert("You do not have enough energy to remove the blackberry bush! Game over!")
+		alert("You do not have enough energy to remove the blackberry bush! Game over!");
 		game_over();
 
   	}
@@ -132,13 +132,13 @@ function get_rock_loc()
 //hero lands in a cell containing rocks and boulders
 function encounter_rock()
 {
-   if ((eval(hero.row_coordinate) == eval(rock.x)) && (eval(hero.column_coordinate) == eval(rock.y)))
+   if(map[hero.row_coordinate][hero.column_coordinate].obstacle == "Boulder")
    {
 
    	//lose energy for moving into that map cell
 	var energyLost = 0;
       
-	document.getElementById("terrain").value = "Rocks and Boulder" 
+	document.getElementById("terrain").value = "Rocks and Boulder"; 
 	//tools that can remove the rocks and boulders: jackhammer, sledgehammer, chisel
 
  	// check if the inventory contains a jackhammer
@@ -179,7 +179,7 @@ function encounter_rock()
 	
 	if (energyRemaining <= 0)
         {
-		alert("You do not have enough energy to remove the rock! Game over!")
+		alert("You do not have enough energy to remove the rock! Game over!");
 		game_over();
 
   	}
@@ -234,13 +234,13 @@ function get_tree_loc()
 //hero lands in a cell containing trees
 function encounter_tree()
 {
-   if ((eval(hero.row_coordinate) == eval(tree.x)) && (eval(hero.column_coordinate) == eval(tree.y)))
+   if(map[hero.row_coordinate][hero.column_coordinate].obstacle == "Tree")
    {
 
    	//lose energy for moving into that map cell
 	var energyLost = 0;
       
-	document.getElementById("terrain").value = "Trees" 
+	document.getElementById("terrain").value = "Trees"; 
 	//tools that can remove the rocks and boulders: hatchet, axe, chainsaw
 
  	// check if the inventory contains a hatchet
@@ -280,7 +280,7 @@ function encounter_tree()
 	
 	if (energyRemaining <= 0)
         {
-		alert("You do not have enough energy to remove the tree! Game over!")
+		alert("You do not have enough energy to remove the tree! Game over!");
 		game_over();
 
   	}
