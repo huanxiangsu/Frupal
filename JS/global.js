@@ -59,7 +59,8 @@ var tools = {
     "Sledgehammer":[25,12],
     "Jackhammer":[100,4],
     "Machete":[25,2],
-    "Shears":[35,2]
+    "Shears":[35,2],
+    "PrettyRock":[10,1]
 };
 var powerbar_sound = document.getElementById('powerbar_sound');
 var map;  // two dimensional array to store each map cell
@@ -81,7 +82,7 @@ class map_cell {  // for each map cell's property
 
 
 /*************************** graphic map information ******************************/
-var cellSize = 40;  // each square's actual size measured in px. (can be any value)
+var cellSize = 30;  // each square's actual size measured in px. (can be any value)
 var hero_left_pos = 0; // the graphic hero's position measured in px.
 var hero_top_pos = 0;  // same above
 
@@ -91,6 +92,3 @@ var gamePage = document.getElementById("game");
 var graphic_hero = document.getElementById("hero");
 /*************************** End graphic map information ***************************/
 
-
-// for state-preserving file 
-var saved_map_info = [];
