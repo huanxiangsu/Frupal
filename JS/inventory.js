@@ -21,7 +21,7 @@ function setup_Inventory(){
 
         // otherwise, add <li> element to inventory list with corrsponding name, quantity, and value.
         else{  
-            $("#inventory-list").append("<li class='hero_item' id='" + hero.items[x] + "'>" +hero.items[x] + "&emsp;X<span class='quantity'>1</span>&emsp;(value: <span class='cost'>0</span> Whiffles)" + "</li>");
+            $("#inventory-list").append("<li class='hero_item' id='" + hero.items[x] + "'>" +hero.items[x] + "&emsp;x<span class='quantity'>1</span>&emsp;(value: <span class='cost'>0</span> Whiffles)" + "</li>");
             $("[id='" +hero.items[x]+ "'] .cost").text(get_purchase_value(hero.items[x]));  // set purchase value
         }
     }
