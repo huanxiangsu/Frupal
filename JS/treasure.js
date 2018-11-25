@@ -1,16 +1,31 @@
 // generate treasure on map
 function create_treasure_1(){
-  t_1.x = Math.floor(Math.random()*(mapSize));
-  t_1.y = Math.floor(Math.random()*(mapSize));
-  map[t_1.x][t_1.y].obstacle = "Treasure1";
+  var row, column;
+    var i = 0;
+    var added = 0;
+    while(i < mapSize*mapSize){
+        row = Math.floor(Math.random()*(mapSize));
+        column = Math.floor(Math.random()*(mapSize));
+
+        // if this location contains other item already, loop again. default value for obstacle is "None"
+        if(map[row][column].obstacle != "None"){
+            ++i;
+            continue;
+        }
+        else{
+	    map[row][column].obstacle = "Treasure1";
+	    ++i;
+	    ++added;
+	    if(added == 2) // add up to 2 treasure1
+              break;
+        }
+    }
 }
 
 // function that removes the treasure chest from the map, this function is called once whiffles are updated
 function delete_treasure_1(){
   remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);
   map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";
-  t_1.x = null;
-  t_1.y = null;
 }
 
 // this function tells the user they have found treasure & updates whiffles
