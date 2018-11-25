@@ -6,15 +6,15 @@ function create_power_bar(){
 }
 // function that removes the power bar from the map, this function is called once a power bar is purchased
 function delete_power_bar(){
-	remove_item_in_cell(powerbar.x,powerbar.y);
+	remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);
 	map[powerbar.x][powerbar.y].obstacle = "None";
 	powerbar.x = null;
 	powerbar.y = null;
 }
 // this function asks the user if they want to purchase a powerbar once found
 function encounter_power_bar(){
-	if((eval(hero.row_coordinate) == eval(powerbar.x)) && (eval(hero.column_coordinate) == eval(powerbar.y))){
-		var ask = confirm("You found a power bar! It costs one whiffle. Would you like to purchase it?");
+	if(map[hero.row_coordinate][hero.column_coordinate].obstacle == "Powerbar"){
+		var ask = confirm("You found a power bar! It costs one whiffle and you will gain 20 units of energy. Would you like to purchase it?");
 		var soundFlag = true;	
 		if(ask == true)
 		{
@@ -34,6 +34,7 @@ function encounter_power_bar(){
 				hero.energy += 20;	
 				hero.whiffles--;
 				document.getElementById("whiffles").value = hero.whiffles;
+				document.getElementById("energy").value = hero.energy;
 				// remove the power bar once user purchases it
 				delete_power_bar();	
 		}
