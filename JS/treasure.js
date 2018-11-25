@@ -7,15 +7,15 @@ function create_treasure_1(){
 
 // function that removes the treasure chest from the map, this function is called once whiffles are updated
 function delete_treasure_1(){
-  remove_item_in_cell(t_1.x,t_1.y);
-  map[t_1.x][t_1.y].obstacle = "None";
+  remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);
+  map[hero.row_coordinate][hero.column_coordinate].obstacle = "None";
   t_1.x = null;
   t_1.y = null;
 }
 
 // this function tells the user they have found treasure & updates whiffles
 function encounter_treasure_1(){
- if((eval(hero.row_coordinate) == eval(t_1.x)) && (eval(hero.column_coordinate) == eval(t_1.y))){
+ if(map[hero.row_coordinate][hero.column_coordinate].obstacle == "Treasure1"){
     alert("You found a Type 1 Treasure Chest! 100 whiffles have been added to your bank account.");
   var treasure1_sound = document.getElementById('treasure1_sound');
   var soundFlag = true;
