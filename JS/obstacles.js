@@ -247,7 +247,7 @@ function encounter_tree()
 	if (hero.items.includes("Hatchet"))
 	{
 		
-		energyLost = tools["hatchet"][1];
+		energyLost = tools["Hatchet"][1];
 		//remove the tool from the inventory
 		hero.items.splice(hero.items.indexOf("Hatchet"),1);		
 		remove_item_from_inventory("Hatchet");
