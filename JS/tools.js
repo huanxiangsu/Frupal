@@ -10,6 +10,7 @@ function encounter_tool(tool){
         }
         else{
 	    var chainsaw_sound = document.getElementById('chainsaw_sound');
+	    var jackhammer_sound = document.getElementById('jackhammer_sound'); 
 	    var soundFlag = true;
 	    if(soundFlag)
 	    {
@@ -18,6 +19,13 @@ function encounter_tool(tool){
 			chainsaw_sound.pause();
 			chainsaw_sound.currentTime = 0;
 			chainsaw_sound.play();
+			soundFlag = false;
+		}
+		if(tool == "Jackhammer")
+		{
+			jackhammer_sound.pause();
+			jackhammer_sound.currentTime = 0;
+			jackhammer_sound.play();
 			soundFlag = false;
 		}
 	    }
