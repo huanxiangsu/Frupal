@@ -22,7 +22,7 @@
     <!----------------------------Game Start Menu---------------------->
     <div class="container-fluid" id="startPage">
         <div class="gameMenu">
-            <button class="btn-primary startBtn" type="button" onclick="document.getElementById('menu_sound').play();startGame()"><b>New Game</b></button><br>
+            <button class="btn-primary startBtn" style="margin-top:80px" type="button" onclick="document.getElementById('menu_sound').play();startGame()"><b>New Game</b></button><br>
             <button class="btn-primary startBtn" type="button" onclick="document.getElementById('menu_sound').play();continueGame()"><b>Continue Game</b></button><br>
             <button class="btn-info startBtn" type="button" onclick="document.getElementById('menu_sound').play()" data-toggle="modal" data-target="#config"><b>Game Configuration</b></button>
         </div>
@@ -60,7 +60,7 @@
         <!----Game map---->
         <br>
         <div class="container" id="map" tabindex="0">
-            <div class="img-circle" id="hero">
+            <div id="hero">
             </div>
         </div>
         
@@ -71,22 +71,34 @@
                 <!---- Hero's information ---->
                 <div class="col-sm-4">
                     <form>
-                        Current Location <input type="text" id="currentlocation"><br>
-                        Energy <input type="text" id="energy"><br>
-                        Whiffles <input type="text" id="whiffles"><br>
-                        Messages <input type="text" id="terrain"><br>
-                    </form>
+                        <div class="form-group">
+                            <label for="currentlocation">Current Location:</label>
+                            <input class="form-control input-sm" type="text" id="currentlocation" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="energy">Energy:</label>
+                            <input class="form-control input-sm" type="text" id="energy" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="whiffles">Whiffles:</label>
+                            <input class="form-control input-sm" type="text" id="whiffles" disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="terrain">Messages:</label>
+                            <input class="form-control input-sm" type="text" id="terrain" disabled>
+                        </div>
+                    </form><br>
                 </div>
 
                 <!---- Control-panel ---->
                 <div class="col-sm-4">
                     <div style="text-align:center">
-                        <button id = "moveUp" type="button" onclick="move_up()"><b>NORTH</b></button><br><br>
-                        <button id = "moveLeft" onclick="move_left()"><b>WEST</b></button>
+                        <button class="btn-primary btn-lg btn-control" id = "moveUp" type="button" onclick="move_up()"><b>NORTH</b></button><br><br>
+                        <button class="btn-primary btn-lg btn-control" id = "moveLeft" onclick="move_left()"><b>WEST</b></button>
                         <span>&emsp;&emsp;</span> 
-                        <button id = "moveRight" onclick="move_right()"><b>EAST</b></button><br><br>
-                        <button id = "moveDown" onclick="move_down()"><b>SOUTH</b></button><br>
-                    </div>
+                        <button class="btn-primary btn-lg btn-control" id = "moveRight" onclick="move_right()"><b>EAST</b></button><br><br>
+                        <button class="btn-primary btn-lg btn-control" id = "moveDown" onclick="move_down()"><b>SOUTH</b></button><br>
+                    </div><br>
                 </div>
 
                 <!---- Hero's Inventory ---->
@@ -100,7 +112,7 @@
                 </div>
             </div>
         </div>
-        <br><br>
+        <hr>
 	<!-- exit button -->
         <button class="btn-danger startBtn btn-exit" type="button" onclick="exitGame();"><b>Exit Game</b></button><br>
     </div>
@@ -130,6 +142,5 @@
     <audio src="sounds/noenergy.mp3" id="noenergy_sound">
     <audio src="sounds/water.mp3" id="water_sound">
     <audio src="sounds/menu1.mp3" id="menu_sound">
-    <audio src="sounds/treasure2.mp3" id="treasure2_sound">
 </body>
 </html>
