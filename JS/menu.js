@@ -21,6 +21,7 @@ function startGame(){
 	document.getElementById("currentlocation").value=get_hero_position();
         document.getElementById("energy").value=get_energy();
 	document.getElementById("whiffles").value = hero.whiffles;
+	document.getElementById("terrain").value=get_terrain(); //Gets the terrain of heros location
 
 
         // put code above, parsing or setting or creating something necessary
@@ -30,7 +31,6 @@ function startGame(){
         //display_all_blocks();  // remove comment for testing only, display all cells to viewable
         startPage.style.display = "none"; // hide the menu page
         gamePage.style.display = "block";  // display the game with the map and control-panel
-	document.getElementById("terrain").value=get_terrain(); //Gets the terrain of heros location
     }
     else{
         alert("Loading map file failed!");
@@ -57,6 +57,7 @@ function continueGame(){
         document.getElementById("currentlocation").value=get_hero_position();
         document.getElementById("energy").value=get_energy();
 	document.getElementById("whiffles").value = hero.whiffles;
+	document.getElementById("terrain").value=get_terrain(); //Gets the terrain of heros location
 
         // load state preserving file from localStorage above
         localStorage.setItem("game_status", "in_game");
