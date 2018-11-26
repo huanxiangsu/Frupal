@@ -127,8 +127,7 @@ body{
 
 /* river terrain */
 .water{
-    background-color: rgb(72, 219, 207);
-    background-image: url();
+    background-image: url("../images/river.jpeg");
 }
 
 .wall{
