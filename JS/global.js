@@ -60,7 +60,7 @@ var tools = {
     "Jackhammer":[100,4],
     "Machete":[25,2],
     "Shears":[35,2],
-    "PrettyRock":[10,1]
+    "PrettyRock":[1,1]
 };
 var powerbar_sound = document.getElementById('powerbar_sound');
 var map;  // two dimensional array to store each map cell
