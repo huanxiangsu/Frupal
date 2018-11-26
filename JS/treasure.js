@@ -55,6 +55,15 @@ function encounter_treasure_1(){
 function encounterTreasure2 () {
   //If at a treasure2, the hero's whiffles goes to 0.
   if (map[hero.row_coordinate][hero.column_coordinate].obstacle == "Treasure2") {
+    var treasure2_sound = document.getElementById('treasure2_sound');
+    var soundFlag = true;
+    if(soundFlag)
+    {
+   	treasure2_sound.pause();
+	treasure2_sound.currentTime = 0;
+	treasure2_sound.play();
+	soundFlag = false;
+    }
     hero.whiffles = 0;
     document.getElementById("whiffles").value = get_whiffles();
     remove_item_in_cell(hero.row_coordinate, hero.column_coordinate);
