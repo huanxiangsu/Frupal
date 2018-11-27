@@ -11,6 +11,16 @@ window.onbeforeunload = window.onunload = function (){
 // scripts to execute when clicked "new game"
 function startGame(){
     if(parse_map_file("map")){  // when new name, parse map file
+    	var background_music = document.getElementById('background_music');
+        background_music.volume = 0.3;	
+	var soundFlag = true;
+	if(soundFlag)
+	{
+		background_music.pause();
+		background_music.currentTime = 0;
+		background_music.play();
+		soundFlag = false;
+	}
         create_royal_jewel();  //setup the location of royal diamond on the map.
        	create_power_bar();	// setup the location of the power bar on the map
 	create_treasure_1();    // setup the location of treasure 1 on the map
@@ -41,6 +51,15 @@ function startGame(){
 // exit, remove all map cells and display starting menu when clicked "exit game"
 // scripts to perform after exit game
 function exitGame(){
+	var background_music = document.getElementById('background_music');	
+	background_music.volume = 0.3;	
+	var soundFlag = true;
+	if(soundFlag)
+	{
+		background_music.pause();
+		soundFlag = false;
+	}
+
     gamePage.style.display = "none";
     startPage.style.display = "block";
     removeAllCells();
@@ -54,6 +73,14 @@ function exitGame(){
 // scripts to perform when user come back and click "continue game"
 function continueGame(){
     if (parse_map_file("save_map")){
+	var background_music = document.getElementById('background_music');	
+	background_music.volume = 0.3;
+	var soundFlag = true;
+	if(soundFlag)
+	{
+		background_music.play();
+		soundFlag = false;
+	}
         document.getElementById("currentlocation").value=get_hero_position();
         document.getElementById("energy").value=get_energy();
 	document.getElementById("whiffles").value = hero.whiffles;
@@ -74,6 +101,14 @@ function continueGame(){
 
 // scripts to perform when royal dismond found or run out of energy
 function game_over(){
+	var background_music = document.getElementById('background_music');	
+	background_music.volume = 0.3;
+	var soundFlag = true;
+	if(soundFlag)
+	{
+		background_music.pause();
+		soundFlag = false;
+	}
     localStorage.removeItem("save_map");
     localStorage.setItem("game_status", "off_game");
     gamePage.style.display = "none";
