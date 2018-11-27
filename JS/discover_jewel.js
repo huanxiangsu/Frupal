@@ -37,8 +37,9 @@ function win_game()
 function noEnergy() {
   if (hero.energy == 0 && ((eval(hero.row_coordinate) == eval(jewel.x)) && (eval(hero.column_coordinate) == eval(jewel.y))))
     return;
-  
   if (hero.energy == 0) {
+    alert ("You ran out of energy!");
+    game_over();
     var noenergy_sound = document.getElementById('noenergy_sound');
     var soundFlag = true;
     if(soundFlag)
@@ -48,8 +49,6 @@ function noEnergy() {
 	noenergy_sound.play();
 	soundFlag = false;
     }
-    alert ("You ran out of energy!");
-    game_over();
   }
 }
 
