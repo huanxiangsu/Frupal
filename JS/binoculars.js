@@ -11,7 +11,7 @@ function create_binoculars(){
         column = Math.floor(Math.random()*(mapSize));
 
         // if this location contains other item already, loop again. default value for obstacle is "None"
-        if(map[row][column].obstacle != "None"){
+        /*if(map[row][column].obstacle != "None"){
             ++i;
             continue;
         }
@@ -20,7 +20,7 @@ function create_binoculars(){
             // make sure the item's name matched the class name that appear in item list in the file gameLayout.css (appear in bottom of the file)
             map[row][column].obstacle = "Binoculars"; 
             break;
-        }
+        }*/
     }
 }
 
