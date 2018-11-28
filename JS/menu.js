@@ -21,10 +21,10 @@ function startGame(){
 		background_music.play();
 		soundFlag = false;
 	}
-        create_royal_jewel();  //setup the location of royal diamond on the map.
+        //create_royal_jewel();  //setup the location of royal diamond on the map.
        	create_power_bar();	// setup the location of the power bar on the map
 	create_treasure_1();    // setup the location of treasure 1 on the map
-	create_binoculars();  // setup binoculars
+	//create_binoculars();  // setup binoculars
 	create_blackberry_bush();
 	create_rock();
 	create_tree();
