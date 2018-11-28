@@ -1,9 +1,9 @@
 // Load the royal jewels into a random cell in the map.
 function create_royal_jewel()
 {
-  jewel.x = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
-  jewel.y = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
-  map[jewel.x][jewel.y].obstacle = "Jewel";  // use to display jewel image in the cell
+  //jewel.x = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
+  //jewel.y = Math.floor(Math.random()*(mapSize)); //max coordinate (24,24)
+  //map[jewel.x][jewel.y].obstacle = "Jewel";  // use to display jewel image in the cell
 }
 
 // Get the x,y location of the royal jewels
