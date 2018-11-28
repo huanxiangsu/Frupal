@@ -12,7 +12,7 @@ window.onbeforeunload = window.onunload = function (){
 function startGame(){
     if(parse_map_file("map")){  // when new name, parse map file
     	var background_music = document.getElementById('background_music');
-        background_music.volume = 0.3;	
+        background_music.volume = 0.25;	
 	var soundFlag = true;
 	if(soundFlag)
 	{
@@ -52,7 +52,7 @@ function startGame(){
 // scripts to perform after exit game
 function exitGame(){
 	var background_music = document.getElementById('background_music');	
-	background_music.volume = 0.3;	
+	background_music.volume = 0.25;	
 	var soundFlag = true;
 	if(soundFlag)
 	{
@@ -74,7 +74,7 @@ function exitGame(){
 function continueGame(){
     if (parse_map_file("save_map")){
 	var background_music = document.getElementById('background_music');	
-	background_music.volume = 0.3;
+	background_music.volume = 0.25;
 	var soundFlag = true;
 	if(soundFlag)
 	{
@@ -102,7 +102,7 @@ function continueGame(){
 // scripts to perform when royal dismond found or run out of energy
 function game_over(){
 	var background_music = document.getElementById('background_music');	
-	background_music.volume = 0.3;
+	background_music.volume = 0.25;
 	var soundFlag = true;
 	if(soundFlag)
 	{
