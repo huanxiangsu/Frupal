@@ -12,6 +12,7 @@ function encounter_tool(tool){
 	    var chainsaw_sound = document.getElementById('chainsaw_sound');
 	    var jackhammer_sound = document.getElementById('jackhammer_sound'); 
 	    var axe_sound = document.getElementById('axe_sound'); 
+	    var shears_sound = document.getElementById('shears_sound'); 
 	    var soundFlag = true;
 	    if(soundFlag)
 	    {
@@ -35,6 +36,13 @@ function encounter_tool(tool){
 			axe_sound.currentTime = 0;
 			axe_sound.play();
 			soundFlad = false;
+		}
+		if(tool == "Shears")
+		{
+			shears_sound.pause();
+			shears_sound.currentTime = 0;
+			shears_sound.play();
+			soundFlag = false;
 		}
 	    }
             hero.whiffles -= price;   // deducted money by the cost of the hatchet
