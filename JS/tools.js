@@ -13,6 +13,7 @@ function encounter_tool(tool){
 	    var jackhammer_sound = document.getElementById('jackhammer_sound'); 
 	    var axe_sound = document.getElementById('axe_sound'); 
 	    var shears_sound = document.getElementById('shears_sound'); 
+	    var machete_sound = document.getElementById('machete_sound'); 
 	    var soundFlag = true;
 	    if(soundFlag)
 	    {
@@ -42,6 +43,13 @@ function encounter_tool(tool){
 			shears_sound.pause();
 			shears_sound.currentTime = 0;
 			shears_sound.play();
+			soundFlag = false;
+		}
+		if(tool == "Machete")
+		{
+			machete_sound.pause();
+			machete_sound.currentTime = 0;
+			machete_sound.play();
 			soundFlag = false;
 		}
 	    }
