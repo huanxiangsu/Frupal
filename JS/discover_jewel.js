@@ -16,7 +16,11 @@ function get_jewel_loc()
 // Game ends once jewels are collected
 function win_game()
 {
-  if ( (eval(hero.row_coordinate) == eval(jewel.x)) && (eval(hero.column_coordinate) == eval(jewel.y)) )
+  // TODO this if statement is changed for the demo to use '.obstacle' because
+  // create_royal_jewel() isn't called in demo, so jewel.x & jewel.y aren't being set
+  //if ( (eval(hero.row_coordinate) == eval(jewel.x)) && (eval(hero.column_coordinate) == eval(jewel.y)) )
+  if (map[hero.row_coordinate][hero.column_coordinate].obstacle == "Jewel")
+	  
   {
     var jewel_sound = document.getElementById('jewel_sound');
     var soundFlag = true;
